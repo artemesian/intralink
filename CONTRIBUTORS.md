@@ -1,4 +1,4 @@
-#Instructions
+# Instructions
 Add your name/nickname, github account, website if exist and discord name.
 
 Please follow this template:
@@ -7,5 +7,9 @@ Please follow this template:
 
 
 
-#Netcode-Intralink Contributors
+# Netcode-Intralink Contributors
+```
 
+	-> Angelo Diepe | https://github.com/angelo-diepe/ | https://angelodiepe.pythonanywhere.com/ | @Angelo#6931
+
+```

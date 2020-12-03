@@ -1,0 +1,14 @@
+.custom-button{
+  border: none;
+  border-radius: 7px;
+  background-color: #00A7E1;
+  height: 45px;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  transition: all 0.1s ease-out;
+
+  &:hover{
+    box-shadow: 0 2px 28px #64646440;
+  }
+}

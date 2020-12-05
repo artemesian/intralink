@@ -1,0 +1,93 @@
+.register-container {
+  display: flex;
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+
+  .register-logo {
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+  }
+
+  .register-form {
+    width: 450px;
+    height: 600px;
+    margin: auto;
+    margin-left: -15%;
+    overflow: hidden;
+    background-color: white;
+    padding: 30px;
+
+    h1 {
+      color: black;
+      margin-bottom: 10px;
+    }
+
+    .personnal-container {
+
+      h2 {
+        margin: 20px 0px 20px 0px;
+        font-size: 16px;
+      }
+
+      input {
+        width: 90%;
+        height: 20px;
+        border: none;
+        border-bottom: 1px solid black;
+        // opacity: 0.4;
+        margin-top: 20px;
+        color: black;
+        font-size: 16px;
+      }
+
+      .button-next {
+        width: 80px;
+        height: 40px;
+        border: 1.9px solid black;
+        cursor: pointer;
+        display: flex;
+        padding: 10px;
+
+        input {
+          opacity: 1;
+          width: 70px;
+          background-color: white;
+          margin-top: -5px;
+          border: none;
+          font-size: 16px;
+          margin-left: 3px;
+        }
+      }
+    }
+
+    .academic-container {
+      h2 {
+        margin: 20px 0px 20px 0px;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+
+        .button-back {
+          border: 2px solid black;
+          display: flex;
+          justify-content: center;
+          width: 80px;
+          height: 35px;
+          padding-top: 5px;
+          cursor: pointer;
+        }
+
+        input {
+          width: 80px;
+          color: white;
+          background-color: rgb(135, 206, 235);
+        }
+      }
+    }
+  }
+}

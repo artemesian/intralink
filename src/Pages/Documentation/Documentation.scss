@@ -1,0 +1,56 @@
+.Documentation-wrapper{
+	display: flex;
+	flex-direction:column;
+	align-items: center;
+	.Documentation-Header{
+		width:100%;
+		display: flex;
+		justify-content: space-between;
+		padding:50px 30px 30px 40px;
+		.Documentation-Header-title{
+		font-size:1.3em;	
+		}
+		.Documentation-Header-notification-image{
+			width: 20px;
+			height:20px;
+		}
+	}
+	.Documentation-input-container{
+		width:100%;
+		display: flex;
+		justify-content:center;
+		.Documentation-input-box{
+			display: flex;
+			justify-content:center;
+			align-items: center;
+		    border:1px solid #dddddd;
+		    width:80%;
+		    height:65px;
+		    border-radius: 5px;
+		    box-shadow:5px 5px 5px 5px #dddddd;
+		    background-color: white;
+			.Documentation-input-item{
+			  text-align: center;
+			  border:none;
+			  height:100%;
+			  width:70%;
+			  margin: 0px 3% 0px 3%;
+			}
+		}
+	}
+	.Documentation-container{
+		width:100%;
+		display: flex;
+		flex-direction:column;
+		padding-top: 40px;
+		.Documentation-container-title{
+			width:100%;
+			display: flex;
+			justify-content:flex-start;
+		/*	border:1px solid black;*/
+			padding-left: 18%;
+			font-size:1.2em;
+
+		}
+	}
+}

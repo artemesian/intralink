@@ -1,10 +1,10 @@
-# Contributing to Netcode-Intralink
+# Contributing to Intralink
 
 ## First steps
 
-- Fork [netcode-intralink](https://github.com/angeloDiepe/netcode-intralink)
+- Fork [intralink](https://github.com/angeloDiepe/intralink)
 - clone 
-- Add your name to the [CONTRIBUTORS.md](https://github.com/angeloDiepe/netcode-intralink/blob/master/CONTRIBUTORS.md) file
+- Add your name to the [CONTRIBUTORS.md](https://github.com/angeloDiepe/intralink/blob/master/CONTRIBUTORS.md) file
 - Commit your changes and create a pull request (through your forked repository)
 - Once your PR is approved and merged you are officially a contributor! You can then begin to look for tasks to do in our Trello boards. To gain access to these boards, request an invitation in our Discord channel.
 - Note: Just like your first contribution, you will continue to create new pull requests through your forked repository.
@@ -44,4 +44,4 @@ All of the tasks that have been merged into the master branch.
 
 ## Additional Questions
 
-If you have questions about how to contribute, contact a project admin through Discord (we have a dedicated channel for the project **#netcode-intralink**).
+If you have questions about how to contribute, contact a project admin through Discord (we have a dedicated channel for the project **#intralink**).

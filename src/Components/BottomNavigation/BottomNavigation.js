@@ -23,10 +23,10 @@ const BottomNavigation = () => {
   return (
     <div id="bottom-nav">
         <div id="item-news" onClick={(e)=>switchTab(e.currentTarget)} className="item-container on">
-          <NavLink to="/"><img src={newsIcon}/></NavLink>
+          <NavLink to="/Actu"><img src={newsIcon}/></NavLink>
         </div>
         <div id="item-user" onClick={(e)=>switchTab(e.currentTarget)} className="item-container">
-          <NavLink to="/Class"><img src={usersIcon}/></NavLink>
+          <NavLink to="/MyClass"><img src={usersIcon}/></NavLink>
         </div>
         <div id="item-doc" onClick={(e)=>switchTab(e.currentTarget)} className="item-container">
           <NavLink to="/Documentation"><img src={docIcon}/></NavLink>

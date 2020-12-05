@@ -1,0 +1,150 @@
+#Header-discussion{
+	height: 50px;
+	display: flex;
+	flex-direction:row;
+	justify-content: space-between;
+	padding: 10% 8% 7% 8%;
+	font-size: 1.3em;
+}
+#Header-image{
+	display: flex;
+}
+#discussion-nav-search-icon{
+	height: 25px;
+	width: 25px;
+	margin:0 0 0 auto;
+	cursor: pointer;
+}
+#discussion-nav-search-input{
+	height: 30px;
+	width: 80%;
+	border-radius: 10px;
+	border:1px solid rgba(0,0,0,0.15);
+    margin-left: 30px;
+	animation: increaseWidth 0.5s ease;
+}
+#discussion-nav-user-icon{
+	height: 30px;
+	width: 30px;
+	margin:0 0 0 auto;
+	cursor: pointer;
+    border: 1px solid black;
+    border-radius:50px;
+    margin-left: 15px;
+    margin-right: 10px;
+    margin-top: 0px;
+}
+.container-discussion{
+	margin-top: 2%;
+	max-height: 70vh;
+    overflow: scroll;
+    z-index:1;
+    padding: 0px 8% 0px 8%;
+}
+.Message-container{
+	margin-Top:20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+    color: black;
+    text-decoration:none;
+}
+.Message-container-box{
+	display: flex;
+	flex-direction: row;
+}
+.count-div{
+	width:20px;
+	height:20px;
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	padding: 10px;
+	border:1px solid #00A7E1;
+	background-color: #00A7E1;
+	border-radius: 10px;
+}
+#discussion-user-icon{
+	height: 30px;
+	width: 30px;
+    border-radius:50px;
+    border: 1px solid black;
+
+}
+.container-switch-call-message{
+    width: 100%;
+	display: flex;
+    position: fixed;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    
+}
+.switch-message-call{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+    height: 6vh;
+    width:50%;
+    background: linear-gradient(to right,#005471,#00A7E1);
+    border-radius:20px;
+    margin-top: 2%;
+}
+#switch-item-message{
+	width:40%;
+	height: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius:10px;
+	background-color: white;
+    color: linear-gradient(to right,#005471,#00A7E1);
+	cursor:pointer;
+}
+#switch-item-call{
+	width:40%;
+	height: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius:10px;
+	cursor:pointer;
+}
+.New-message-item{
+	border: 1px solid black;
+	border-radius:40px;
+	margin-left:40px;
+	width: 40px;
+	height: 40px;
+	text-align:center;
+	background: linear-gradient(to right,#005471,#00A7E1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

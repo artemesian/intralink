@@ -48,6 +48,7 @@ class Auth extends React.Component {
 		}
 		border.classList.toggle('slide')
 		lowerWrapper.classList.toggle('scroll')
+		this.setState({onLogin: !this.state.onLogin})
 	}
 	render() {
 
@@ -56,7 +57,7 @@ class Auth extends React.Component {
 				<div id="upper">
 					<div id="auth-logo">
 						<Logo />
-						<h1>Welcome Back!</h1>
+						<h1>Welcome {this.state.onLogin?"Back!":""}</h1>
 					</div>
 					<div id="tab">
 						<div id="login-text" className="on-tab" onClick={(e)=>this.switchTab(e.target)}>Login</div>

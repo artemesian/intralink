@@ -6,8 +6,10 @@
   box-shadow: 0 -2px 30px #64646420;
   position: fixed;
   bottom: 0;
+  z-index: 5;
   width: 100%;
   border-radius: 10px 10px 0 0 ;
+  background-color: #fff;
   &>div{
     display: flex;
     justify-content: center;

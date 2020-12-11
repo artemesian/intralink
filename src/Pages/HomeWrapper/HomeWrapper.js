@@ -6,17 +6,20 @@ import Class from '../Class/Class.js';
 import JoinClass from '../JoinClass/JoinClass.js';
 import MyClass from '../MyClass/MyClass.js';
 import Classroom from '../Classroom/Classroom.js';
-import Profil from '../Profil/Profil.js';
+import Home from '../Home/Home.js';
 import Discussion from '../Discussion/Discussion.js';
 import Documentation from '../Documentation/Documentation.js';
 import TchatBox from '../TchatBox/TchatBox.js';
-import Actu from '../Actu/Actu.js';
+import Article from '../Article/Article.js';
+
+import './HomeWrapper.scss'
 export default class HomeWrapper extends Component {
 	render() {
 		return (
-			<div>
+			<div className='homewrapper-container'>
 				<Switch>
-				    <Route path="/Actu" component={Profil}/>
+				    <Route path="/Actu" component={Home}/>
+				    <Route path="/Article/:articleID" component={Article}/>
 				    <Route exact path="/MyClass" component={MyClass}/>
 			        <Route exact path="/Discussion" component={Discussion}/>
 			        <Route exact path="/Classroom" component={Classroom}/>
@@ -24,6 +27,7 @@ export default class HomeWrapper extends Component {
 			        <Route exact path="/TchatBox" component={TchatBox}/>
 			        <Route exact path="/JoinClass" component={JoinClass}/>
 			        <Route exact path="/Class" component={Class}/>
+				    <Route path="/" component={Home}/>
 				</Switch>
 				<BottomNavigation/>
 			</div>

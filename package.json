@@ -13,8 +13,13 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
     "react-select": "^3.1.1",
+<<<<<<< HEAD
     "redux": "^4.0.5",
     "socket.io-client": "^3.0.4"
+=======
+    "react-slick": "^0.27.13",
+    "redux": "^4.0.5"
+>>>>>>> a846b5e7ed71e8fa2abcf0bbcd20484079571e31
   },
   "scripts": {
     "start": "react-scripts start",

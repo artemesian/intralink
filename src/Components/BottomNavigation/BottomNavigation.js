@@ -1,8 +1,8 @@
 import React from 'react'
 import usersIcon from "./assets/users.svg"
 import newsIcon from "./assets/newspaper.svg"
-import docIcon from "./assets/users.svg"
-import chatIcon from "./assets/users.svg"
+import docIcon from "./assets/book.svg"
+import chatIcon from "./assets/bubbles.svg"
 import {NavLink} from 'react-router-dom'
 import './BottomNavigation.scss'
 

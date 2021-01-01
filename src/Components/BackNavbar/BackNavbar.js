@@ -5,12 +5,12 @@ import { withRouter } from 'react-router-dom'
 
 import "./BackNavbar.scss";
 
-const BackNavbar = ({history, goto="null"}) => {
+const BackNavbar = ({history, goto="null", text=""}) => {
 
 	return (
 		<div id="backnavbar-wrapper">
 			<img src={back} alt="back" onClick={()=>goto!=="null"? history.push(`/${goto}`):history.goBack()}/>
-			<span>Suivant</span>
+			<span>{text}</span>
 		</div>
 		)
 }

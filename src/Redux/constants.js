@@ -1,1 +1,0 @@
-export const INIT_CONSTANT='INIT_CONSTANT';

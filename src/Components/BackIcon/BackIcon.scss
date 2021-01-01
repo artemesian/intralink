@@ -1,0 +1,13 @@
+#backicon-wrapper{
+	height: 100%;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	
+	img{
+		width: 24px;
+		cursor: pointer;
+	}
+}

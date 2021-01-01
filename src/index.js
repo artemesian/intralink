@@ -2,16 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom'
 import {Provider} from 'react-redux';
-import {createStore,combineReducers,applyMiddleware} from 'redux'
-import logger from 'redux-logger';
-// import thunkMiddleware from 'redux-thunk'
-import {initReducer} from './Redux/reducer.js'
+import {store} from "./Redux/Store"
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const rootReducer=combineReducers({initReducer})
-const store=createStore(rootReducer,applyMiddleware(logger))
 ReactDOM.render(
 	<BrowserRouter>
 	    <Provider store={store}>

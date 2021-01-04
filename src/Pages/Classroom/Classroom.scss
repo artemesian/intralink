@@ -1,0 +1,65 @@
+#classroom-wrapper{
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  background-color: #FBFBFB;
+  #header-wrapper{
+    padding-top: 15px;
+    width: 100%;
+    background-color: white;
+    position: relative;
+    z-index: 3;
+    #header{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 15px;
+
+      div{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        p{
+          font-weight: 500;
+          font-size: 17px;
+          padding: 2.5px 15px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+      }
+    }
+  }
+  #tab-header-wrapper{
+    width: 100%;
+    padding: 0 15px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-shadow: 1px 1px 5px 2px #eeeeeeaa;
+    background-color: white;
+    #tab-header{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+    text-align: center;
+
+    div{
+      color: #888;
+      font-weight: 500;
+      padding: 12px;
+      transition: all 0.15s ease-in;
+      cursor: pointer;
+
+      &.on-tab{
+        border-bottom: 3px solid rgb(0, 167, 225);
+        color: rgb(0, 167, 225);
+      }
+    }
+  }
+  } 
+}

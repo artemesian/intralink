@@ -19,6 +19,18 @@ export const ClassList=[
       {
       	username:'',
       	image:'./assets/user.png'
+      },
+      {
+      	username:'',
+      	image:'./assets/user.png'
+      },
+      {
+      	username:'',
+      	image:'./assets/user.png'
+      },
+      {
+      	username:'',
+      	image:'./assets/user.png'
       }
 	]
 }

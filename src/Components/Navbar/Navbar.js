@@ -2,7 +2,6 @@ import React,{useEffect} from 'react';
 import "./Navbar.css";
 import menu from "./assets/menu.svg";
 import search from "./assets/search.svg";
-import notif from "./assets/bell.svg";
 import profile from "./assets/profile.jpg";
 import back from "./assets/back.png";
 import twitter from "./assets/twitter.svg";
@@ -10,6 +9,8 @@ import discord from "./assets/discord.svg";
 import telegramme from "./assets/telegramme.svg";
 import vectorBg from "./assets/Taieri.svg";
 import pencilGray from "./assets/pencil-gray.png";
+import { withRouter } from 'react-router-dom';
+import NotifIcon from '../NotifIcon/NotifIcon';
 
 const Navbar = (props) => {
 	const showNav = () =>{
@@ -72,12 +73,9 @@ const Navbar = (props) => {
 							document.querySelector(".navbar-title").style.display ='none'
 							document.getElementById('navbar-search-input').style.display="block";}}/>
 					</div>
-					<div id="navbar-notif-container">
-						<img src={notif} alt="notification" id="navbar-notif-icon"/>
-						<span id="navbar-notif-count">0</span>
-					</div>
+					<NotifIcon/>
 					<div id="navbar-profile-wrapper">
-						<div id="navbar-profile-container" style={{backgroundImage:`url(${profile})`}} onClick={()=>props.changeRoute("profile")}>
+						<div id="navbar-profile-container" style={{backgroundImage:`url(${profile})`}} onClick={()=>props.history.push("/profile")}>
 						</div>
 					</div>
 				</div>
@@ -87,4 +85,4 @@ const Navbar = (props) => {
 		)
 }
 
-export default Navbar;
+export default withRouter(Navbar);

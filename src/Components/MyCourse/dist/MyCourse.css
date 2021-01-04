@@ -1,0 +1,95 @@
+#mycourse-container {
+  width: 100%;
+  height: 100%;
+  padding: 25px 0 100px 0;
+}
+#mycourse-container #start-class {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  height: 96px;
+  background-color: #FBFBFB;
+  box-shadow: 0px 0px 40px 2px #eeeeeeaa;
+}
+#mycourse-container #start-class button {
+  background-color: #00A7E1;
+  border: none;
+  border-radius: 20px;
+  width: 50%;
+  height: 38px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+#mycourse-container #block {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px 12px 20px;
+  border-bottom: 2px solid #ddddddaa;
+}
+#mycourse-container #block > div {
+  padding: 9px 5px;
+}
+#mycourse-container #block .title {
+  color: #888;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+#mycourse-container .class-time {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#mycourse-container .class-time .clock {
+  width: 20px;
+  margin-right: 7px;
+}
+#mycourse-container .class-time span {
+  color: #888;
+  font-size: 14.5px;
+}
+#mycourse-container .class-student {
+  display: flex;
+}
+#mycourse-container .class-infos p {
+  font-size: 15px;
+  color: #000000ee;
+}
+#mycourse-container .class-syllabus > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0px 0.4px 2px 0.5px #00000009;
+}
+#mycourse-container .class-syllabus > div > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#mycourse-container .class-syllabus > div .download {
+  width: 25px;
+  opacity: 0.5;
+}
+#mycourse-container .class-syllabus > div span {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 5px;
+  color: #16A5C8;
+}
+#mycourse-container .class-syllabus > div .course-resource-icon {
+  width: 30px;
+  filter: invert(60%) sepia(1) saturate(11.8) hue-rotate(162deg) brightness(0.8);
+}

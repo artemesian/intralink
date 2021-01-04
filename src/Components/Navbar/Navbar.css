@@ -7,7 +7,7 @@
 	position: sticky;
 	position: -webkit-sticky;
 	top:0px;
-	z-index:5;
+	z-index:10;
 	border-bottom: 1px solid #E5E5E5;
 	padding: 0 15px;
 	display: flex;
@@ -55,35 +55,6 @@
 }
 #navbar-search-container{
 	width: 100%;
-}
-#navbar-notif-container{
-	width: 100%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	justify-content: center;
-	align-items: center;
-}
-#navbar-notif-icon{
-	height: 23px;
-	width: 23px;
-	cursor: pointer;
-}
-#navbar-notif-count{
-	display: flex;
-	width: 14px;
-	height: 14px;
-	background-color: red;
-	justify-content: center;
-	align-items: center;
-	border-radius: 50%;
-	color: white;
-	font-weight: bolder;
-	position: absolute;
-	bottom: -5px;
-	right: calc(50% - 15px);
-	font-size: 10px;
 }
 #navbar-profile-wrapper{
 	display: flex;
@@ -146,7 +117,7 @@
 	grid-template-rows: 64px 25% auto 64px auto;
 	grid-row-gap: 10px;
 	transition: all 0.4s ease-out;
-	z-index: 6;
+	z-index: 10;
 }
 #navbar-back-container{
 	display: flex;

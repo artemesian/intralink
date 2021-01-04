@@ -1,0 +1,40 @@
+.chatmessage-wrapper {
+  border-radius: 35px;
+  padding: 15px;
+  height: auto;
+  width: 75%;
+}
+.chatmessage-wrapper .chatmessage-container {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 45px auto;
+  height: auto;
+  width: 100%;
+}
+.chatmessage-wrapper .chatmessage-container .profile-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  height: 42px;
+  width: 42px;
+  background-color: #011627;
+  align-self: flex-start;
+  cursor: pointer;
+}
+.chatmessage-wrapper .chatmessage-container .inner-container {
+  padding: 0 7px;
+  width: 100%;
+  opacity: 0.75;
+}
+.chatmessage-wrapper .chatmessage-container .inner-container .header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+}
+.chatmessage-wrapper .chatmessage-container .inner-container .message {
+  font-size: 14px;
+  padding-top: 4px;
+}

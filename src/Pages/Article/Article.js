@@ -19,7 +19,7 @@ const Article = (props) =>{
   console.log(props)
     return (
       <div id="article-wrapper">
-        <BackNavbar goto=""/>
+        <BackNavbar goto="" text="Suivant"/>
         <div id="article-container">
           <div id="header-image-container" style={{ backgroundImage: `url(${article.img_url})` }}>
             <span id="share"><img src={share} alt="share icon"/></span>

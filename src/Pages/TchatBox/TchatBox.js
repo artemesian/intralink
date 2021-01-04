@@ -10,11 +10,9 @@ import './TchatBox.css'
 import {Messages} from './Constants.js'
 import io from 'socket.io-client'
 
-const socket=io.connect('http://localhost:8080');
-
-let username='Mopi'
-
-let flex=""
+const socket=io.connect("http://127.0.0.1:8080")
+let flex='';
+let username='Mopi';
 let Mess=[];
 class TchatBox extends React.Component{
 	constructor(){
@@ -24,15 +22,16 @@ class TchatBox extends React.Component{
             flex:"flex-start",
             message:''
 		}
-    
-    
+    console.log('constructor')   
 	}
   componentDidMount(){
-    
-   console.log('hello')
   }
+
 	render(){
-        		
+    socket.on('connection',async (data)=>{
+     console.log(data)
+      console.log('je m execute')
+    })
 return(
   <div  className="TchatBox-wrapper">
   	<div className="TchatBox-header">
@@ -76,11 +75,12 @@ return(
     		<div className="Message-sent-block">
     			<input type="text" id='input' className="Message-sent-item-input" placeholder='Type your message...' onChange={(e)=>this.setState({message:e.target.value})}/>
           <div className="Message-sent-button"
-        			onClick={()=>{
-                socket.emit('new',{message:'hello world'})
-        				// (this.state.message=='')?console.log('empty message'):Mess.push({message:this.state.message,sent:false})
-        		  //      this.setState({Messages:Mess,message:''})
-        		  //      document.getElementById('input').value=''
+        			onClick={()=>
+               { 
+                (this.state.message=='')?console.log('empty message'):Mess.push({message:this.state.message,sent:false})
+        		       this.setState({Messages:Mess,message:''})
+        		       document.getElementById('input').value=''
+                   socket.emit('welcome',{message:'hello world'})
         			}}>
           	 	<img src={send} atlt="phone"  style={{width:25,height:25,marginTop:4}}/>
          	</div>

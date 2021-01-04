@@ -20,6 +20,7 @@ export default class HeaderSlider extends Component {
   constructor(props){
     super(props);
     this.state = {
+      autoplay:false,
       articles : [
         {
           id: 1,
@@ -60,9 +61,16 @@ export default class HeaderSlider extends Component {
       ]
     }
   }
+  componentDidMount() {
+  setTimeout(() => {
+    this.setState({
+      autoplay: true,
+    });
+  }, 2000);
+}
   render() {
     return (
-    <Slider {...settings}>
+    <Slider {...settings} autoplay={this.state.autoplay}>
       {this.state.articles.map((article,index)=><div key={String(article.id)+String(index)}>
       <div className="slide-article" style={{backgroundImage:`url(${article.img_url})`}} >
         <div className="overlay"></div>

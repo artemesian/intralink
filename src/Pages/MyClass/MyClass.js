@@ -1,18 +1,19 @@
 import React from 'react';
 import './MyClass.scss'
 import {NavLink} from 'react-router-dom'
-import user from './assets/user.png'
-import plus from './assets/plus.png'
+import profile from '../../Assets/profile.jpg'
+import plus from '../../Assets/plus.svg'
 import clock from './assets/clock.svg'
 import userProfile from './assets/user-profile.svg'
 import {ClassList} from './Constants.js'
+import NotifIcon from '../../Components/NotifIcon/NotifIcon';
 
 class MyClass extends React.Component{
 	constructor(){
 		super();
 		this.state={
 			username:'Mopi',
-            nbrHours:2
+      nbrHours:2
 		}
 	}
 	render(){
@@ -24,14 +25,22 @@ class MyClass extends React.Component{
 		           	  		<h2>My Classroom</h2>
 		           	  		<div>{`Welcome ${this.state.username}`}</div>
 		           	  	</div>
-		           	  	<div id='Classroom-header-image-box'><img src={user} alt="user" id='Classroom-header-image'/></div>
+									 <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+									<NotifIcon/>
+									<div id="navbar-profile-wrapper" style={{marginLeft:"15px"}}>
+										<div id="navbar-profile-container" style={{ backgroundImage: `url(${profile})` }} onClick={() => this.props.history.push("/profile")}>
+										</div>
+									</div>
+								 </div>
 	           	    </div>
-	           	    <div id='Classroom-title'>UPCOMMING CLASS</div>
 	           	    <div className='Classroom-container'>
+	           	    <div id='Classroom-infos'>UPCOMMING CLASS</div>
 	           	    	{ 
 		       	    		ClassList.map((element,key)=>{
+												var left = -17.5	;
+
 		       	    		return(
-			       	    		<NavLink to='/Classroom' className='Classroom-container-wrapper'>
+			       	    		<NavLink to={`/Classroom/${element.id}`} className='Classroom-container-wrapper' key={key}>
 				           	    	<div className='Classroom-container-box'>
 				           	    		<h2 className='Classroom-container-box-name'>{element.Name}</h2>
 				           	    		<div className='Classroom-container-box-time'>
@@ -49,10 +58,11 @@ class MyClass extends React.Component{
 				           	    		</div>
 				           	    		<div className='Classroom-container-box-picture'>
 				           	    			{
-				           	    				element.memberList.map((img,key)=>{
+				           	    				element.memberList.slice(0,4).map((member,key)=>{
+																	 left += 17.5	
 				           	    					return(
-				           	    					<img src={img} alt="img" className='Classroom-container-box-picture-image'/>
-				           	    				)})
+																			<div key={key} id="navbar-profile-container" style={{ backgroundImage: `url(${key === 3 && element.memberList.length > 3 ? null : profile})`, backgroundColor:"#567AEC",display: "flex", justifyContent:"center", alignItems:"center", color:"white", position: "absolute", top: 0, left: ++left + 'px', border: "2px solid white", fontSize:"12px", fontWeight:"bold" }}>{key === 3 && element.memberList.length > 3 ? "+".concat(element.memberList.length-3): null}</div>
+																 )})
 				           	    			}
 				           	    			<div></div>
 				           	    		</div>

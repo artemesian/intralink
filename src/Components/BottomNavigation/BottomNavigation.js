@@ -19,7 +19,7 @@ const BottomNavigation = ({history}) => {
   }
   return (
     <div id="bottom-nav">
-        <div id="item-news" onClick={(e)=>{switchTab(e.currentTarget);history.push('/Actu')}} className="item-container on">
+        <div id="item-news" onClick={(e)=>{switchTab(e.currentTarget);history.push('/Home')}} className="item-container on">
           <img src={newsIcon}/>
         </div>
         <div id="item-user" onClick={(e)=>{switchTab(e.currentTarget);history.push('/MyClass')}} className="item-container">

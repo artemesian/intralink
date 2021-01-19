@@ -8,9 +8,10 @@ import video from './assets/video.svg'
 import send from './assets/send.svg'
 import './TchatBox.css'
 import {Messages} from './Constants.js'
-import io from 'socket.io-client'
 
-const socket=io.connect("http://127.0.0.1:8080")
+// import io from 'socket.io-client'
+
+// const socket=io.connect("http://127.0.0.1:8080")
 let flex='';
 let username='Mopi';
 let Mess=[];
@@ -28,10 +29,10 @@ class TchatBox extends React.Component{
   }
 
 	render(){
-    socket.on('connection',async (data)=>{
-     console.log(data)
-      console.log('je m execute')
-    })
+    // socket.on('connection',async (data)=>{
+    //  console.log(data)
+    //   console.log('je m execute')
+    // })
 return(
   <div  className="TchatBox-wrapper">
   	<div className="TchatBox-header">
@@ -80,7 +81,7 @@ return(
                 (this.state.message=='')?console.log('empty message'):Mess.push({message:this.state.message,sent:false})
         		       this.setState({Messages:Mess,message:''})
         		       document.getElementById('input').value=''
-                   socket.emit('welcome',{message:'hello world'})
+                   // socket.emit('welcome',{message:'hello world'})
         			}}>
           	 	<img src={send} atlt="phone"  style={{width:25,height:25,marginTop:4}}/>
          	</div>

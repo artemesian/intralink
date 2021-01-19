@@ -11,8 +11,9 @@ import vectorBg from "./assets/Taieri.svg";
 import pencilGray from "./assets/pencil-gray.png";
 import { withRouter } from 'react-router-dom';
 import NotifIcon from '../NotifIcon/NotifIcon';
+import {IP,PORT} from '../../url_config.js'
 
-const Navbar = (props) => {
+export const Navbar = (props) => {
 	const showNav = () =>{
 		let navSlider = document.querySelector(".navbar-slider");
 		navSlider.classList.toggle("navbar-sliding");
@@ -22,6 +23,8 @@ const Navbar = (props) => {
        console.log("hello")}
       })
    }
+   let url='';
+   (props.User===undefined)?url=profile:url=`http://${IP}:${PORT}/user/profil/`+props.User._id
 	return (
 		<div id="navbar-wrapper">
 			<div id="navbar-container">
@@ -35,7 +38,7 @@ const Navbar = (props) => {
 					</div>
 					<div id="navbar-modify-profile-container" style={{backgroundImage:`url(${vectorBg})`}}>
 						<div id="navbar-modify-profile-wrapper">
-							<div id="navbar-modify-profile" style={{backgroundImage:`url(${profile})`}}>
+							<div id="navbar-modify-profile" style={{backgroundImage:`url(${url})`}}>
 								<div id="navbar-modify-profile-pencil-container" onClick={()=>{if(props.changeRoute("profile"))props.modifyProfile()}}>
 									<img src={pencilGray} alt="modify-profile-pencil" id="navbar-modify-profile-pencil"/>
 								</div>
@@ -75,7 +78,7 @@ const Navbar = (props) => {
 					</div>
 					<NotifIcon/>
 					<div id="navbar-profile-wrapper">
-						<div id="navbar-profile-container" style={{backgroundImage:`url(${profile})`}} onClick={()=>props.history.push("/profile")}>
+						<div id="navbar-profile-container" style={{backgroundImage:`url(${url})`}} onClick={()=>props.history.push("/profile")}>
 						</div>
 					</div>
 				</div>

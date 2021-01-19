@@ -2,20 +2,23 @@ import React from 'react';
 import Logo from '../../Components/Logo/Logo.js'
 import Select from 'react-select'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link,Redirect } from 'react-router-dom'
+import {connect} from 'react-redux'
 import './Auth.scss'
 import { Plateform, Filieres, Formation, Niveau } from './Constant.js'
 import back from './assets/back.svg'
 import next from './assets/next.svg'
 import LoginInput from '../../Components/LoginInput/LoginInput.js';
 import CustomButton from '../../Components/CustomButton/CustomButton.js';
-import {Redirect} from 'react-router-dom'
+import { loadUser } from '../../Redux/auth/auth-actions'
+import { getStore } from '../../Redux/class/class-selectors';
+import {IP,PORT} from '../../url_config.js'
 let validEmail;
 
 class Auth extends React.Component {
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			PersonnalPage: true,
 			Filieres: [],
@@ -60,22 +63,24 @@ class Auth extends React.Component {
        this.setState({[e.target.id]:e.target.value})
 	}
 	onLogin(){
+		console.log('onClick')
 	   if (this.state.Email.includes('@gmail.com'))
 		  {
 		  	if(!this.state.Email.length<8)
 		  	{
-		  		axios.post('http://localhost:8080/Login',
+		  		axios.post(`http://${IP}:${PORT}/Login`,
 		  		{
 		  			Email:this.state.Email,
 		  			Password:this.state.Password
 		  		})
-		  		.then(data=>{
-		  			console.log(data.data.message.token)
-	  				localStorage.setItem('token',data.data.message.token)
-		  			// if(data.data.message.auth==true)
-		  			// this.setState({isLogin:data.data.message.auth})
-		  		})
-		  		.catch(error=>console.log(error))
+		  		.then(async data=>{
+		  			console.log(data.data.message)
+		  			await this.props.loadUser(data.data.message.User)
+	  				await localStorage.setItem('token',data.data.message.token)
+		  			if(data.data.message.auth==true)
+		  			this.setState({isLogin:data.data.message.auth})
+	  		})
+		  		.catch(error=>this.displayLoginAlert(error.message))
 		  	}
 		  	else{
 	           alert('your password is too short !')
@@ -92,7 +97,7 @@ class Auth extends React.Component {
 		  	{
 		  		if(this.state.Password===this.state.Confirm)
 		  		{
-			  		axios.post('http://localhost:8080/SignUp',
+			  		axios.post(`http://${IP}:${PORT}/SignUp`,
 			  		{
 			  			Email:this.state.Email,
 			  			Password:this.state.Password,
@@ -104,8 +109,9 @@ class Auth extends React.Component {
 			  			Username:this.state.Username,
 			  			Phone:this.state.Phone
 			  		})
-			  		.then(data=>{
+			  		.then(async data=>{
 			  			console.log(data)
+						await this.props.loadUser(data.data.message.User)
 			  			if(data.data.message.auth==true)
 			  			this.setState({isLogin:data.data.message.auth})
 			  		})
@@ -123,9 +129,16 @@ class Auth extends React.Component {
 		   	alert('error in your email address')
 	    }
 	}
+	displayLoginAlert(data){
+		if (data.includes('404')) {
+			alert('User not found')
+		}else if(data.includes('401')){
+			alert('your password is wrong !')
+		}
+	}
 	render() {
 		if(this.state.isLogin)
-	  		return <Redirect push to='/'/>
+	  		return <Redirect push to='/Home'/>
 		return (
 			<div id="auth-container">
 				<div id="upper">
@@ -175,4 +188,7 @@ class Auth extends React.Component {
 		)
 	}
 }
-export default Auth;
+const mapDispatchToProps = dispatch => ({
+	loadUser: (data) => dispatch(loadUser(data)),
+})
+export default connect(state => ({ store: getStore(state) }), mapDispatchToProps)(Auth);

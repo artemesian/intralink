@@ -6,11 +6,10 @@ import HomeWrapper from './Pages/HomeWrapper/HomeWrapper.js';
 import './App.scss';
 function App() {
   return (
-    <div 
-    className="App">
+    <div className="App">
       <Switch>
         <Route exact path="/" component={Auth}/>
-        <Route path="/" component={HomeWrapper}/>
+        <Route path="/home" component={HomeWrapper}/>
       </Switch>
     </div>
   );

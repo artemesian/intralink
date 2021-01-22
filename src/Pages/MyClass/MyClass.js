@@ -62,7 +62,7 @@ class MyClass extends React.Component{
 									 <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
 									<NotifIcon/>
 									<div id="navbar-profile-wrapper" style={{marginLeft:"15px"}}>
-										<div id="navbar-profile-container" style={{ backgroundImage: `url(${local_url}user/profil/${this.props.store.User.User._id})` }} onClick={() => this.props.history.push("/profile")}>
+										<div id="navbar-profile-container" style={{ backgroundImage: `url(${local_url}user/profil/${this.props.store.User.User._id})` }} onClick={() => this.props.history.push("/Home/profile")}>
 										</div>
 									</div>
 								 </div>
@@ -74,7 +74,7 @@ class MyClass extends React.Component{
 												var left = -17.5	;
 
 		       	    		return(
-			       	    		<NavLink to={`/Classroom/${element._id}`} className='Classroom-container-wrapper' key={key} onClick={()=>this.currentClass(element)}>
+			       	    		<NavLink to={`/Home/Classroom/${element._id}`} className='Classroom-container-wrapper' key={key} onClick={()=>this.currentClass(element)}>
 				           	    	<div className='Classroom-container-box'>
 				           	    		<h2 className='Classroom-container-box-name'>{element.Name}</h2>
 				           	    		<div className='Classroom-container-box-time'>
@@ -108,7 +108,7 @@ class MyClass extends React.Component{
 	           	    	}
 	           	    </div>
            	    </div>
-           	    <NavLink to='/Class' className='Classroom-container-plus'>
+           	    <NavLink to='/Home/Class' className='Classroom-container-plus'>
            	    	<img src={plus} alt="plus " className='Classroom-container-plus-image'/>
            	    </NavLink>
            </div>

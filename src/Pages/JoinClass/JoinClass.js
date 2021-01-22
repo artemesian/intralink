@@ -43,13 +43,13 @@ class JoinClass extends React.Component{
 
 	}
 	render(){
-		console.log(this.props.store)
+		console.log(this.props.history)
 		if(this.state.join)
-	  		return <Redirect push to='/MyClass'/>
+	  		return <Redirect push to='/Home/MyClass'/>
 		return(
             <div id="join-wrapper">
 							<div className="join-header">
-	            	<BackIcon goto="Class"/>
+	            	<BackIcon goto="null"/>
            	  	<h2 className="join-header-tiltle">Join A Class</h2>
 							</div>
 							<div id="join-container-image"><img src={friends} className="join-container-image-item" alt="group image" /></div>

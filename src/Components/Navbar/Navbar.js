@@ -12,7 +12,7 @@ import pencilGray from "./assets/pencil-gray.png";
 import { withRouter } from 'react-router-dom';
 import NotifIcon from '../NotifIcon/NotifIcon';
 import {local_url} from '../../url_config.js'
-
+import {NavLink} from 'react-router-dom'
 export const Navbar = (props) => {
 	const showNav = () =>{
 		let navSlider = document.querySelector(".navbar-slider");
@@ -39,20 +39,22 @@ export const Navbar = (props) => {
 					<div id="navbar-modify-profile-container" style={{backgroundImage:`url(${vectorBg})`}}>
 						<div id="navbar-modify-profile-wrapper">
 							<div id="navbar-modify-profile" style={{backgroundImage:`url(${url})`}}>
-								<div id="navbar-modify-profile-pencil-container" onClick={()=>{if(props.changeRoute("profile"))props.modifyProfile()}}>
+								<NavLink id="navbar-modify-profile-pencil-container" to="/Home/profile">
 									<img src={pencilGray} alt="modify-profile-pencil" id="navbar-modify-profile-pencil"/>
-								</div>
+								</NavLink>
 							</div>
-							<span id="user-name">UserName</span>
+							<span id="user-name">{(props.User===undefined)?"Welcome Guest":props.User.Name}</span>
 						</div>
 					</div>
 					<ul className="navbar-list-wrapper">
-						<li className="navbar-list-item"><button className="navbar-link-item" onClick={()=>props.changeRoute("home")}>HOME</button></li>
-						<li className="navbar-list-item"><button className="navbar-link-item" onClick={()=>props.changeRoute("discussion")}>DISCUSSION</button></li>
-						<li className="navbar-list-item"><button className="navbar-link-item" onClick={()=>props.changeRoute("setting")}>SETTING</button></li>
-						<li className="navbar-list-item"><button className="navbar-link-item" onClick={()=>props.changeRoute("help")}>HELP</button></li>
-						<li className="navbar-list-item"><button className="navbar-link-item" onClick={()=>props.changeRoute("about")}>ABOUT</button></li>
-						<li className="navbar-list-item"><button className="navbar-link-item" onClick={()=>{if(!props.setLoggedIn())props.changeRoute('intro')}} >LOGOUT</button></li>
+						<li className="navbar-list-item"><NavLink to="Home"><button className="navbar-link-item" >HOME</button></NavLink></li>
+						<li className="navbar-list-item"><NavLink to="/Home/MYCLASS"><button className="navbar-link-item" >CLASSROOM</button></NavLink></li>
+						<li className="navbar-list-item"><NavLink to="/Home/DOCUMENTATION"><button className="navbar-link-item" >DOCUMENTATION</button></NavLink></li>
+						<li className="navbar-list-item"><NavLink to="/Home/DISCUSSION"><button className="navbar-link-item" >DISCUSSION</button></NavLink></li>
+						<li className="navbar-list-item"><NavLink to="/Home/SETTING"><button className="navbar-link-item" >SETTING</button></NavLink></li>
+						<li className="navbar-list-item"><NavLink to="/Home/HELP"><button className="navbar-link-item" >HELP</button></NavLink></li>
+						<li className="navbar-list-item"><NavLink to="/Home/ABOUT"><button className="navbar-link-item" >ABOUT</button></NavLink></li>
+						<li className="navbar-list-item"><NavLink to="/Home/LOGOUT"><button className="navbar-link-item" >LOGOUT</button></NavLink></li>
 					</ul>
 					<div id="navbar-social-container">
 						<img src={twitter} alt="social-twitter" className="social"/>

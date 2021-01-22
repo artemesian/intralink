@@ -9,9 +9,6 @@ import send from './assets/send.svg'
 import './TchatBox.css'
 import {Messages} from './Constants.js'
 
-// import io from 'socket.io-client'
-
-// const socket=io.connect("http://127.0.0.1:8080")
 let flex='';
 let username='Mopi';
 let Mess=[];
@@ -29,15 +26,12 @@ class TchatBox extends React.Component{
   }
 
 	render(){
-    // socket.on('connection',async (data)=>{
-    //  console.log(data)
-    //   console.log('je m execute')
-    // })
+
 return(
   <div  className="TchatBox-wrapper">
   	<div className="TchatBox-header">
     		<div className="TchatBox-header-left">
-    			<div><NavLink to="/Discussion"><img src={back} alt="back arrow"/></NavLink></div>
+    			<div><NavLink to="/Home/Discussion"><img src={back} alt="back arrow"/></NavLink></div>
 		       <div style={{display:"flex",flexDirection:"row",marginLeft:10}}>
             	<div className="image-div">
   				 <img src={user} atlt="profil" id="discussion-user-icon"/>

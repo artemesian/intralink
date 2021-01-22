@@ -6,9 +6,7 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.3.0",
-
     "axios": "^0.21.0",
-
     "create-react-class": "^15.7.0",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
@@ -19,7 +17,7 @@
     "react-select": "^3.1.1",
     "react-slick": "^0.27.13",
     "redux": "^4.0.5",
-    "socket.io-client": "^3.0.4"
+    "socket.io-client": "^3.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

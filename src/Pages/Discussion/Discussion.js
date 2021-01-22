@@ -43,7 +43,7 @@ class Discussion extends React.Component{
 	              {
 	              	discussion.Messages.map((Message,key)=>{
 	              		return( 
-	                       <NavLink to="/TchatBox" className="Message-container">
+	                       <NavLink to="/Home/TchatBox" className="Message-container">
 	                           <div className="Message-container-box">
 		                          	<div className="image-div">
 		   			  					<img src={user} atlt="profil" id="discussion-user-icon"/>

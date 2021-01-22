@@ -14,7 +14,7 @@ const ArticleItem = ({item, history}) => {
    // (props.User._id===undefined)?url=author:url=`http://${IP}:${PORT}/user/profil/`+props.User._id
   return (
     <div className="articleitem-container" onClick={()=>{
-      history.push(`/Article/${item._id}`)
+      history.push(`/Home/Article/${item._id}`)
     }}>
       <div className="left-wrapper" style={{ backgroundImage: `url(${local_url}Articles/image/${item._id})` }} >
       </div>

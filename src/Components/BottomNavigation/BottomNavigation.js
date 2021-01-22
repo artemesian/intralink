@@ -22,13 +22,13 @@ const BottomNavigation = ({history}) => {
         <div id="item-news" onClick={(e)=>{switchTab(e.currentTarget);history.push('/Home')}} className="item-container on">
           <img src={newsIcon}/>
         </div>
-        <div id="item-user" onClick={(e)=>{switchTab(e.currentTarget);history.push('/MyClass')}} className="item-container">
+        <div id="item-user" onClick={(e)=>{switchTab(e.currentTarget);history.push('/Home/MyClass')}} className="item-container">
           <img src={usersIcon}/>
         </div>
-        <div id="item-doc" onClick={(e)=>{switchTab(e.currentTarget);history.push('/Documentation')}} className="item-container">
+        <div id="item-doc" onClick={(e)=>{switchTab(e.currentTarget);history.push('/Home/Documentation')}} className="item-container">
           <img src={docIcon}/>
         </div>
-        <div id="item-chat" onClick={(e)=>{switchTab(e.currentTarget);history.push('/Discussion')}} className="item-container">
+        <div id="item-chat" onClick={(e)=>{switchTab(e.currentTarget);history.push('/Home/Discussion')}} className="item-container">
           <img src={chatIcon}/>
         </div>
     </div>

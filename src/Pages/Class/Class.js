@@ -17,7 +17,7 @@ class Class extends React.Component{
            <div className="class-container">
 						 <div>
            	  <div className="class-container-header">
-								<BackIcon goto="MyClass"/>
+								<BackIcon goto="null"/>
            	  	<h2 className="class-container-header-title">Start a Class</h2>
            	  </div>           	  
            	  <div className="class-container-header-text"> Start or join a class now !</div>
@@ -25,8 +25,8 @@ class Class extends React.Component{
            	  <div className="class-container-image" style={{backgroundImage:`url(${classImage})`}}>
            	  </div>           	  
            	  <div className="class-container-item">
-									<NavLink to="/StartClass" className="class-container-item-join-link start"> START A CLASS</NavLink>
-                  <NavLink to="/JoinClass" className="class-container-item-join-link"> JOIN THE CLASS</NavLink>
+									<NavLink to="/Home/StartClass" className="class-container-item-join-link start"> START A CLASS</NavLink>
+                  <NavLink to="/Home/JoinClass" className="class-container-item-join-link"> JOIN THE CLASS</NavLink>
            	  </div>
            </div>
 			)

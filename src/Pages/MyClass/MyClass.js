@@ -12,7 +12,7 @@ import NotifIcon from '../../Components/NotifIcon/NotifIcon';
 import { listClass,loadClass } from '../../Redux/class/class-actions'
 import { getStore } from '../../Redux/class/class-selectors';
 import {loadArticles} from '../../Redux/articles/article-actions'
-import {IP,PORT} from '../../url_config.js'
+import {local_url} from '../../url_config.js'
 
 class MyClass extends React.Component{
 	constructor(props){
@@ -33,7 +33,7 @@ class MyClass extends React.Component{
 		{
 			alert('you need to login if you want to continue')
 		}else{
-		axios.get(`http://${IP}:${PORT}/Class/${this.props.store.User.User._id}`)
+		axios.get(`${local_url}Class/${this.props.store.User.User._id}`)
 		.then(async data=>{console.log(data)
 			await this.props.listClass(data.data)
 			await this.setState({Classes:data.data})
@@ -62,7 +62,7 @@ class MyClass extends React.Component{
 									 <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
 									<NotifIcon/>
 									<div id="navbar-profile-wrapper" style={{marginLeft:"15px"}}>
-										<div id="navbar-profile-container" style={{ backgroundImage: `url(http://${IP}:${PORT}/user/profil/${this.props.store.User.User._id})` }} onClick={() => this.props.history.push("/profile")}>
+										<div id="navbar-profile-container" style={{ backgroundImage: `url(${local_url}user/profil/${this.props.store.User.User._id})` }} onClick={() => this.props.history.push("/profile")}>
 										</div>
 									</div>
 								 </div>
@@ -95,7 +95,7 @@ class MyClass extends React.Component{
 				           	    				element.Members.slice(0,4).map((member,key)=>{
 																	 left += 17.5	
 				           	    					return(
-																			<div key={key} id="navbar-profile-container" style={{ backgroundImage: `url(http://${IP}:${PORT}/user/profil/${key === 3 && ClassList[0].memberList.length > 3 ? null : member.Id})`, backgroundColor:"#567AEC",display: "flex", justifyContent:"center", alignItems:"center", color:"white", position: "absolute", top: 0, left: ++left + 'px', border: "2px solid white", fontSize:"12px", fontWeight:"bold" }}>{key === 3 && ClassList[0].memberList.length > 3 ? "+".concat(ClassList[0].memberList.length-3): null}</div>
+																			<div key={key} id="navbar-profile-container" style={{ backgroundImage: `url(${local_url}user/profil/${key === 3 && ClassList[0].memberList.length > 3 ? null : member.Id})`, backgroundColor:"#567AEC",display: "flex", justifyContent:"center", alignItems:"center", color:"white", position: "absolute", top: 0, left: ++left + 'px', border: "2px solid white", fontSize:"12px", fontWeight:"bold" }}>{key === 3 && ClassList[0].memberList.length > 3 ? "+".concat(ClassList[0].memberList.length-3): null}</div>
 																 )})
 				           	    			}
 				           	    			<div></div>

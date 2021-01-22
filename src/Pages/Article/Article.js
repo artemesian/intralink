@@ -9,7 +9,7 @@ import './Article.scss'
 import IMG from './assets/huawei_winner.jpg'
 import {getStore} from '../../Redux/class/class-selectors'
 import axios from 'axios'
-import {IP,PORT} from '../../url_config.js'
+import {local_url} from '../../url_config.js'
 let article = {
   id: 3,
   img_url: "./assets/huawei_winner.jpg",
@@ -24,29 +24,24 @@ let src=''
 const loadArticle=(id,items)=>{
   for (var i = 0; i < items.length; i++) {
      if (items[i]._id==id) {
-    ARTICLE=items[i]
-
+        ARTICLE=items[i]
+        break;
   }
   }
-console.log(ARTICLE)
 }
-const increaseView=(view,user)=>{
-  axios.put('',{
-    _id:'',
-    View:view,
-    User:user
-  })
-  .then()
-  .catch()
+const increaseView=(id)=>{
+  axios.put(`${local_url}Articles/${id}/view`)
+  .then(data=>console.log(data))
+  .catch(error=>console.log(error))
 }
 const Article = (props) =>{
-  console.log(__dirname)
+  increaseView(props.match.params.articleID)
   loadArticle(props.match.params.articleID,props.store.Articles.ARTICLE)
     return (
       <div id="article-wrapper">
-        <BackNavbar goto="" text="Suivant"/>
+        <BackNavbar goto="Home" text="Suivant"/>
         <div id="article-container">
-          <div id="header-image-container" style={{ backgroundImage: `url('http://${IP}:${PORT}/Articles/image/${ARTICLE._id}')` }}>
+          <div id="header-image-container" style={{ backgroundImage: `url('${local_url}Articles/image/${ARTICLE._id}')` }}>
               <span id="share"><img src={share} alt="share icon"/></span>
           </div>
           <div id="desc-body-wrapper">

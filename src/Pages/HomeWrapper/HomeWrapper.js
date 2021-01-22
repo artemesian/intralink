@@ -13,6 +13,7 @@ import Documentation from '../Documentation/Documentation.js';
 import TchatBox from '../TchatBox/TchatBox.js';
 import Article from '../Article/Article.js';
 import './HomeWrapper.scss'
+
 class HomeWrapper extends Component {
 	constructor(props){
 		super(props)

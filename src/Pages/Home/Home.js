@@ -6,8 +6,9 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import {loadArticles} from '../../Redux/articles/article-actions'
 import { getStore } from '../../Redux/class/class-selectors';
-import {IP,PORT} from '../../url_config.js'
+import {local_url} from '../../url_config.js'
 import './Home.scss'
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +16,7 @@ class Home extends Component {
     }
   }
   componentDidMount(){
-      axios.get(`http://${IP}:${PORT}/Articles`)
+      axios.get(`${local_url}Articles`)
       .then(async data=>{
         console.log(data)
         await this.props.loadArticles(data.data)
@@ -23,10 +24,9 @@ class Home extends Component {
       })
       .catch(console.log)      
   }
-  // componentWillMount(){
 
-  // }
   render() {
+
     return (
       <div id="home-container">
         <Navbar User={this.props.store.User.User}/>

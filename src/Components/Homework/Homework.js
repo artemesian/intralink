@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import download from '../../Assets/download.svg'
 import './Homework.scss'
 import axios from 'axios'
-import {IP,PORT} from '../../url_config.js'
+import {local_url} from '../../url_config.js'
 
 export default class Homework extends Component {
   constructor(props){
@@ -23,10 +23,10 @@ export default class Homework extends Component {
                 <p>Posted {homework.uploadDate}</p>
               </div>
             </div>
-            <a href={`http://${IP}:${PORT}/Class/Homework/${this.props.Classe._id}/${homework.filename}`}
+            <a href={`${local_url}Class/Homework/${this.props.Classe._id}/${homework.filename}`}
             onClick={()=>
                 {
-                  fetch(`http://${IP}:${PORT}/Class/Homework/${this.props.Classe._id}/${homework.filename}`)
+                  fetch(`${local_url}Class/Homework/${this.props.Classe._id}/${homework.filename}`)
                   .then(data=>{
                     data.blob().then(blob=>{
                     let url=window.URL.createObjectURL(blob)

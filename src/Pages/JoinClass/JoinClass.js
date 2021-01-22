@@ -7,7 +7,7 @@ import { getStore } from '../../Redux/class/class-selectors';
 import {Redirect} from 'react-router-dom'
 
 import './JoinClass.scss'
-import {IP,PORT} from '../../url_config.js'
+import {local_url} from '../../url_config.js'
 class JoinClass extends React.Component{
 
 	constructor(props){
@@ -28,7 +28,7 @@ class JoinClass extends React.Component{
 		this.adhereClass(this.state.code)
 	}
 	adhereClass(Code){
-		axios.post(`http://${IP}:${PORT}/Class/adhere`,{
+		axios.post(`${local_url}Class/adhere`,{
 			Code:Code,
 			Id:this.props.store.User.User._id,
 			Name:this.props.store.User.User.Name+' '+this.props.store.User.User.Surname

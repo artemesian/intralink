@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import {IP,PORT} from '../../url_config.js'
+import {local_url} from '../../url_config.js'
 import calendar from './assets/calendar.svg'
 import author from './assets/person.svg'
 import view from './assets/eye.svg'
@@ -16,7 +16,7 @@ const ArticleItem = ({item, history}) => {
     <div className="articleitem-container" onClick={()=>{
       history.push(`/Article/${item._id}`)
     }}>
-      <div className="left-wrapper" style={{ backgroundImage: `url('http://${IP}:${PORT}/Articles/image/${item._id}')` }} >
+      <div className="left-wrapper" style={{ backgroundImage: `url(${local_url}Articles/image/${item._id})` }} >
       </div>
       <div className="right-wrapper">
         <div className="infos">

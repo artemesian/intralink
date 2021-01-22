@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import ChatInput from '../ChatInput/ChatInput';
 import ChatMessage from '../ChatMessage/ChatMessage';
 import './Chat.scss';
-import {IP,PORT} from '../../url_config.js'
+import {local_url} from '../../url_config.js'
 import io from 'socket.io-client'
 
-var socket = io.connect(`http://${IP}:${PORT}`);
+var socket = io.connect(`${local_url}`);
 socket.on("connect", function() {
   console.log('connected')
 });

@@ -11,7 +11,7 @@ import vectorBg from "./assets/Taieri.svg";
 import pencilGray from "./assets/pencil-gray.png";
 import { withRouter } from 'react-router-dom';
 import NotifIcon from '../NotifIcon/NotifIcon';
-import {IP,PORT} from '../../url_config.js'
+import {local_url} from '../../url_config.js'
 
 export const Navbar = (props) => {
 	const showNav = () =>{
@@ -24,7 +24,7 @@ export const Navbar = (props) => {
       })
    }
    let url='';
-   (props.User===undefined)?url=profile:url=`http://${IP}:${PORT}/user/profil/`+props.User._id
+   (props.User===undefined)?url=profile:url=`${local_url}user/profil/`+props.User._id
 	return (
 		<div id="navbar-wrapper">
 			<div id="navbar-container">

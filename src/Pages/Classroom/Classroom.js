@@ -33,7 +33,6 @@ class Classroom extends React.Component {
 		})
 	}
 	render() {
-		console.log(this.props.store.Classe)
 		return (
 			<div id="classroom-wrapper">
 				<div id="header-wrapper">
@@ -67,9 +66,5 @@ class Classroom extends React.Component {
 const mapDispatchToProps = dispatch => ({
 	changeBottomnav: (data) => dispatch(changeBottomnav(data)),
 })
-const mapStateToProps = (state) => {
-  return {
-    Classes:state.listClass
-  }
-}
+
 export default connect(state => ({ store: getStore(state) }), mapDispatchToProps)(Classroom);

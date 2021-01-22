@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import calendar from './assets/calendar.svg'
 import author from './assets/person.svg'
 import view from './assets/eye.svg'
-import {IP,PORT} from '../../url_config.js'
+import {local_url} from '../../url_config.js'
 import './HeaderSlider.scss'
 
 var settings = {
@@ -34,7 +34,7 @@ export default class HeaderSlider extends Component {
     return (
     <Slider {...settings} autoplay={this.state.autoplay}>
       {this.props.Articles.map((article,index)=><div key={String(article._id)+String(index)}>
-      <div className="slide-article" style={{backgroundImage:`url(http://${IP}:${PORT}/Articles/image/${article._id})`}} >
+      <div className="slide-article" style={{backgroundImage:`url(${local_url}Articles/image/${article._id})`}} >
         <div className="overlay"></div>
           <div className="infos">
             <h2>{article.Title}</h2>

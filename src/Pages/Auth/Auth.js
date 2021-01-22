@@ -12,7 +12,7 @@ import LoginInput from '../../Components/LoginInput/LoginInput.js';
 import CustomButton from '../../Components/CustomButton/CustomButton.js';
 import { loadUser } from '../../Redux/auth/auth-actions'
 import { getStore } from '../../Redux/class/class-selectors';
-import {IP,PORT} from '../../url_config.js'
+import {local_url} from '../../url_config.js'
 let validEmail;
 
 class Auth extends React.Component {
@@ -68,7 +68,7 @@ class Auth extends React.Component {
 		  {
 		  	if(!this.state.Email.length<8)
 		  	{
-		  		axios.post(`http://${IP}:${PORT}/Login`,
+		  		axios.post(`${local_url}Login`,
 		  		{
 		  			Email:this.state.Email,
 		  			Password:this.state.Password
@@ -97,7 +97,7 @@ class Auth extends React.Component {
 		  	{
 		  		if(this.state.Password===this.state.Confirm)
 		  		{
-			  		axios.post(`http://${IP}:${PORT}/SignUp`,
+			  		axios.post(`${local_url}SignUp`,
 			  		{
 			  			Email:this.state.Email,
 			  			Password:this.state.Password,

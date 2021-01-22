@@ -3,7 +3,7 @@ import { ReactComponent as Clock } from '../../Assets/clock.svg'
 import download from '../../Assets/download.svg'
 import profile from '../../Assets/profile.jpg'
 import './MyCourse.scss'
-import {IP,PORT} from '../../url_config.js'
+import {local_url} from '../../url_config.js'
 
 export const Block = ({title,children}) => {
   return(
@@ -17,58 +17,7 @@ export default class MyCourse extends Component {
   constructor(props){
     super(props);
     this.state = {
-      students: [
-        {
-          username: 'erica',
-          image: './assets/user.png'
-        },
-        {
-          username: '',
-          image: './assets/user.png'
-        },
-        {
-          username: '',
-          image: './assets/user.png'
-        },
-        {
-          username: '',
-          image: './assets/user.png'
-        },
-        {
-          username: '',
-          image: './assets/user.png'
-        },
-        {
-          username: '',
-          image: './assets/user.png'
-        }
-      ],
-      courseResources:[
-        {
-          id: 1,
-          name:"Chapitre 1: Généralités sur les SI",
-          type:"pdf",
-          url:""
-        },
-        {
-          id: 2,
-          name:"Chapitre 2: Base de données",
-          type:"doc",
-          url:""
-        },
-        {
-          id: 3,
-          name:"Chapitre 1: Généralités sur les SI",
-          type:"pdf",
-          url:""
-        },
-        {
-          id: 4,
-          name:"Chapitre 2: Base de données",
-          type:"doc",
-          url:""
-        },
-      ]
+
     }
   }
   render() {
@@ -87,7 +36,7 @@ export default class MyCourse extends Component {
             {
               Members.slice(0, Members.length).map((member, key) => {
                 return (
-                  <div key={key} id="navbar-profile-container" style={{ backgroundImage: `url(http://${IP}:${PORT}/user/profil/${key === 5 && Members.length > 5 ? null : member.Id})`, backgroundColor: "white", marginRight:"16px", display: "flex", justifyContent: "center", alignItems: "center", color: "black", border: key === 5 && this.state.students.length > 5 ? "1px solid #00000077" : "none", fontSize: "12px", fontWeight: "bold" }}>{key === 5 && Members.length > 5 ? "+".concat(Members.length - 5) : null}</div>
+                  <div key={key} id="navbar-profile-container" style={{ backgroundImage: `url(${local_url}user/profil/${key === 5 && Members.length > 5 ? null : member.Id})`, backgroundColor: "white", marginRight:"16px", display: "flex", justifyContent: "center", alignItems: "center", color: "black", border: key === 5 && this.state.students.length > 5 ? "1px solid #00000077" : "none", fontSize: "12px", fontWeight: "bold" }}>{key === 5 && Members.length > 5 ? "+".concat(Members.length - 5) : null}</div>
                 )
               })
             }
@@ -104,13 +53,13 @@ export default class MyCourse extends Component {
           <div className="class-syllabus">
             {Cours.map(resource=><div key={resource.id}>
               <div>
-                <img className="course-resource-icon" src={`/assets/fileIcons/${this.state.courseResources[0].type}-file-format-symbol.svg`} alt="course resource"/>
+                <img className="course-resource-icon" src={`/assets/fileIcons/pdf-file-format-symbol.svg`} alt="course resource"/>
               <span>{resource.filename}</span>
               </div>
-              <a href={`http://${IP}:${PORT}/Class/Cour/${this.props.Classe._id}/${resource.filename}`} 
+              <a href={`${local_url}Class/Cour/${this.props.Classe._id}/${resource.filename}`} 
                 onClick={()=>
                   {
-                    fetch(`http://${IP}:${PORT}/Class/Cour/${this.props.Classe._id}/${resource.filename}`)
+                    fetch(`${local_url}Class/Cour/${this.props.Classe._id}/${resource.filename}`)
                     .then(data=>{
                       data.blob().then(blob=>{
                       let url=window.URL.createObjectURL(blob)

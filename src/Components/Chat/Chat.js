@@ -2,10 +2,17 @@ import React, { Component } from 'react'
 import ChatInput from '../ChatInput/ChatInput';
 import ChatMessage from '../ChatMessage/ChatMessage';
 import './Chat.scss';
+import {local_url} from '../../url_config.js'
+import io from 'socket.io-client'
 
-export default class Chat extends Component {
+var socket = io.connect(`${local_url}`);
+socket.on("connect", function() {
+  console.log('connected')
+});
+class Chat extends Component {
   constructor(props){
     super(props);
+
     this.state = {
       myID : 1,
       chatList : [
@@ -51,7 +58,12 @@ export default class Chat extends Component {
       ]
     }
   }
+
+componentDidMount(){
+
+}
   render() {
+    console.log(socket)
     return (
       <div id="chat-container">
         {this.state.chatList.map(chat=>
@@ -65,3 +77,4 @@ export default class Chat extends Component {
     )
   }
 }
+export default Chat;

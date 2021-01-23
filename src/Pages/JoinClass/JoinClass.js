@@ -1,14 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import BackIcon from '../../Components/BackIcon/BackIcon'
 import friends from './assets/friends.png'
-import './JoinClass.scss'
+import axios from 'axios'
+import { getStore } from '../../Redux/class/class-selectors';
+import {Redirect} from 'react-router-dom'
 
+import './JoinClass.scss'
+import {local_url} from '../../url_config.js'
 class JoinClass extends React.Component{
 
-	constructor(){
-		super()
+	constructor(props){
+		super(props)
 		this.state={
-			code:""
+			code:"",
+			join:false
 		}
 	}
 	handleInput = (target) => {
@@ -19,14 +25,31 @@ class JoinClass extends React.Component{
 			alert('No class code entered');
 			return
 		}
-		alert(this.state.code)
+		this.adhereClass(this.state.code)
+	}
+	adhereClass(Code){
+		axios.post(`${local_url}Class/adhere`,{
+			Code:Code,
+			Id:this.props.store.User.User._id,
+			Name:this.props.store.User.User.Name+' '+this.props.store.User.User.Surname
+		})
+		.then(data=>{
+			(data.data.joined)?alert('you have already join this class !'):
+			this.setState({join:true})
+		})
+		.catch(err=>alert('invalid code'))
+	}
+	componentDidMount(){
+
 	}
 	render(){
-
+		console.log(this.props.history)
+		if(this.state.join)
+	  		return <Redirect push to='/Home/MyClass'/>
 		return(
             <div id="join-wrapper">
 							<div className="join-header">
-	            	<BackIcon goto="Class"/>
+	            	<BackIcon goto="null"/>
            	  	<h2 className="join-header-tiltle">Join A Class</h2>
 							</div>
 							<div id="join-container-image"><img src={friends} className="join-container-image-item" alt="group image" /></div>
@@ -38,4 +61,5 @@ class JoinClass extends React.Component{
 		)
 	}
 }
-export default JoinClass;
+
+export default connect(state => ({ store: getStore(state) }), null)(JoinClass);

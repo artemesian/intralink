@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import calendar from './assets/calendar.svg'
 import author from './assets/person.svg'
 import view from './assets/eye.svg'
-
+import {local_url} from '../../url_config.js'
 import './HeaderSlider.scss'
 
 var settings = {
@@ -20,68 +20,38 @@ export default class HeaderSlider extends Component {
   constructor(props){
     super(props);
     this.state = {
-      articles : [
-        {
-          id: 1,
-          img_url: "https://source.unsplash.com/random/?computer,1,web",
-          title: "Web Development",
-          sub_title: "How to create a responsive design",
-          views: 15,
-          author: "Angelo",
-          date_publish: "21/12/2020",
-        },
-        {
-          id: 2,
-          img_url: "https://source.unsplash.com/random/?computer,1,web",
-          title: "Web Development",
-          sub_title: "How to create a responsive design",
-          views: 15,
-          author: "Angelo",
-          date_publish: "21/12/2020",
-        },
-        {
-          id: 3,
-          img_url: "https://source.unsplash.com/random/?computer,1,web",
-          title: "Web Development",
-          sub_title: "How to create a responsive design",
-          views: 15,
-          author: "Angelo",
-          date_publish: "21/12/2020",
-        },
-        {
-          id: 4,
-          img_url: "https://source.unsplash.com/random/?computer,1,web",
-          title: "Web Development",
-          sub_title: "How to create a responsive design",
-          views: 15,
-          author: "Angelo",
-          date_publish: "21/12/2020",
-        },
-      ]
+      autoplay:false,
     }
   }
+  componentDidMount() {
+  setTimeout(() => {
+    this.setState({
+      autoplay: true,
+    });
+  }, 2000);
+}
   render() {
     return (
-    <Slider {...settings}>
-      {this.state.articles.map((article,index)=><div key={String(article.id)+String(index)}>
-      <div className="slide-article" style={{backgroundImage:`url(${article.img_url})`}} >
+    <Slider {...settings} autoplay={this.state.autoplay}>
+      {this.props.Articles.map((article,index)=><div key={String(article._id)+String(index)}>
+      <div className="slide-article" style={{backgroundImage:`url(${local_url}Articles/image/${article._id})`}} >
         <div className="overlay"></div>
           <div className="infos">
-            <h2>{article.title}</h2>
-            <h6>{article.sub_title}</h6>
+            <h2>{article.Title}</h2>
+            <h6>{article.Sub_title}</h6>
             <div className="details">
               <div className="left">
                 <img src={calendar} alt="publish"/>
-                <span>{article.date_publish}</span>
+                <span>{article.Date_publish}</span>
               </div>
               <div className="right">
                 <span>
                 <img src={author} alt="author"/>
-                  <span>By {article.author}</span>
+                  <span>By {article.Author}</span>
                 </span>
                 <span className="view">
                 <img src={view} alt="views"/>
-                  <span>{article.views}</span>
+                  <span>{article.View}</span>
                 </span>
               </div>
             </div>

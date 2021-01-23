@@ -1,17 +1,24 @@
 import React from 'react';
 import Logo from '../../Components/Logo/Logo.js'
 import Select from 'react-select'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { Link,Redirect } from 'react-router-dom'
+import {connect} from 'react-redux'
 import './Auth.scss'
 import { Plateform, Filieres, Formation, Niveau } from './Constant.js'
 import back from './assets/back.svg'
 import next from './assets/next.svg'
 import LoginInput from '../../Components/LoginInput/LoginInput.js';
 import CustomButton from '../../Components/CustomButton/CustomButton.js';
+import { loadUser } from '../../Redux/auth/auth-actions'
+import { getStore } from '../../Redux/class/class-selectors';
+import {local_url} from '../../url_config.js'
+let validEmail;
+
 class Auth extends React.Component {
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			PersonnalPage: true,
 			Filieres: [],
@@ -28,8 +35,10 @@ class Auth extends React.Component {
 			Formation: '',
 			Niveau: '',
 			agree: false,
-			onLogin: true
+			onLogin: true,
+			isLogin:false
 		}
+
 	}
 	switchTab = (target) => {
 		let loginText = document.querySelector('#login-text')
@@ -50,8 +59,86 @@ class Auth extends React.Component {
 		lowerWrapper.classList.toggle('scroll')
 		this.setState({onLogin: !this.state.onLogin})
 	}
+	onInputChange(e){
+       this.setState({[e.target.id]:e.target.value})
+	}
+	onLogin(){
+		console.log('onClick')
+	   if (this.state.Email.includes('@gmail.com'))
+		  {
+		  	if(!this.state.Email.length<8)
+		  	{
+		  		axios.post(`${local_url}Login`,
+		  		{
+		  			Email:this.state.Email,
+		  			Password:this.state.Password
+		  		})
+		  		.then(async data=>{
+		  			console.log(data.data.message)
+		  			await this.props.loadUser(data.data.message.User)
+	  				await localStorage.setItem('token',data.data.message.token)
+		  			if(data.data.message.auth==true)
+		  			this.setState({isLogin:data.data.message.auth})
+	  		})
+		  		.catch(error=>this.displayLoginAlert(error.message))
+		  	}
+		  	else{
+	           alert('your password is too short !')
+		  	}
+		}
+		else{
+		   	alert('error in your email address')
+	    }
+	}
+	onSignUp(){
+	   if (this.state.Email.includes('@gmail.com'))
+		  {
+		  	if(!this.state.Email.length<8)
+		  	{
+		  		if(this.state.Password===this.state.Confirm)
+		  		{
+			  		axios.post(`${local_url}SignUp`,
+			  		{
+			  			Email:this.state.Email,
+			  			Password:this.state.Password,
+			  			Filiere:this.state.Filiere,
+			  			Formation:this.state.Formation,
+			  			Niveau:this.state.Niveau,
+			  			Gender:this.state.Gender,
+			  			Fullame:this.state.Fullame,
+			  			Username:this.state.Username,
+			  			Phone:this.state.Phone
+			  		})
+			  		.then(async data=>{
+			  			console.log(data)
+						await this.props.loadUser(data.data.message.User)
+			  			if(data.data.message.auth==true)
+			  			this.setState({isLogin:data.data.message.auth})
+			  		})
+			  		.catch(error=>console.log(error))
+		  	    }
+		  	    else{
+		  	    	alert('password is not the same')
+		        }
+		    }
+		  	else{
+	           alert('your password is too short !')
+		  	}
+		}
+		else{
+		   	alert('error in your email address')
+	    }
+	}
+	displayLoginAlert(data){
+		if (data.includes('404')) {
+			alert('User not found')
+		}else if(data.includes('401')){
+			alert('your password is wrong !')
+		}
+	}
 	render() {
-
+		if(this.state.isLogin)
+	  		return <Redirect push to='/Home'/>
 		return (
 			<div id="auth-container">
 				<div id="upper">
@@ -68,22 +155,22 @@ class Auth extends React.Component {
 				<div id="lower">
 						<div id="lower-wrapper">
 						<div id='login-container'>
-							<LoginInput placeholder="Email Address"/>
-							<LoginInput placeholder="Password"/>
-							<CustomButton value="LOGIN"/>
+							<LoginInput id="Email" placeholder="Email Address"onInputChange={(e)=>this.onInputChange(e)}/>
+							<LoginInput id="Password" placeholder="Password" type="password" onInputChange={(e)=>this.onInputChange(e)}/>
+							<CustomButton  value="LOGIN" onLogin={()=>this.onLogin()}/>
 							<span className="forgot">Forgot Password ?</span>
 							<hr/>
 						</div>
 						<div id='register-container' className="visible">
-							<LoginInput placeholder="Email Address"/>
-							<LoginInput placeholder="Password"/>
-							<LoginInput placeholder="Password"/>
-							<LoginInput placeholder="Password"/>
-							<LoginInput placeholder="Password"/>
-							<LoginInput placeholder="Password"/>
-							<LoginInput placeholder="Password"/>
-							<LoginInput placeholder="Password"/>
-							<LoginInput placeholder="Password"/>
+							<LoginInput placeholder="Email Address" id="Email" onInputChange={(e)=>this.onInputChange(e)}/>
+							<LoginInput placeholder="Fullame" id="Fullame" onInputChange={(e)=>this.onInputChange(e)}/>
+							<LoginInput placeholder="Username" id="Username" onInputChange={(e)=>this.onInputChange(e)}/>
+							<LoginInput placeholder="Password" id="Password" onInputChange={(e)=>this.onInputChange(e)}/>
+							<LoginInput placeholder="Phone" id="Phone" onInputChange={(e)=>this.onInputChange(e)}/>
+							<LoginInput placeholder="Gender" id="Gender" onInputChange={(e)=>this.onInputChange(e)}/>
+							<LoginInput placeholder="Filiere" id="Filiere" onInputChange={(e)=>this.onInputChange(e)}/>
+							<LoginInput placeholder="Formation" id="Formation" onInputChange={(e)=>this.onInputChange(e)}/>
+							<LoginInput placeholder="Niveau" id="Email" onInputChange={(e)=>this.onInputChange(e)}/>
 							<div className="checkbox-wrapper">
 								<input type="checkbox" id="agree" name="agree" value="false"/>
 								<label htmlFor="agree">I accept the terms of use.</label><br/>
@@ -101,4 +188,7 @@ class Auth extends React.Component {
 		)
 	}
 }
-export default Auth;
+const mapDispatchToProps = dispatch => ({
+	loadUser: (data) => dispatch(loadUser(data)),
+})
+export default connect(state => ({ store: getStore(state) }), mapDispatchToProps)(Auth);

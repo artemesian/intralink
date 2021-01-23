@@ -8,6 +8,7 @@ import back from './assets/back.svg'
 import next from './assets/next.svg'
 import LoginInput from '../../Components/LoginInput/LoginInput.js';
 import CustomButton from '../../Components/CustomButton/CustomButton.js';
+
 class Profil extends React.Component {
 
 	constructor() {

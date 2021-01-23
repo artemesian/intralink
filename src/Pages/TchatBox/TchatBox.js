@@ -8,14 +8,9 @@ import video from './assets/video.svg'
 import send from './assets/send.svg'
 import './TchatBox.css'
 import {Messages} from './Constants.js'
-// import io from 'socket.io-client'
 
-// const socket=io.connect('http://localhost:8080');
-
-// let username=prompt('user Name')
-let username='Mopi'
-
-let flex=""
+let flex='';
+let username='Mopi';
 let Mess=[];
 class TchatBox extends React.Component{
 	constructor(){
@@ -25,22 +20,18 @@ class TchatBox extends React.Component{
             flex:"flex-start",
             message:''
 		}
-		// this.AllMessages= this.AllMessages.bind()
+    console.log('constructor')   
 	}
-    // onSubmit(){
-    	
-    // }
+  componentDidMount(){
+  }
+
 	render(){
-		// socket.on('mopi1',(data)=>{console.log('data 001',data)
-		// 	Mess.push({message:data.message,sent:false})
-		// 	this.setState({Messages:Mess})
-	 //    })
-        		
+
 return(
   <div  className="TchatBox-wrapper">
   	<div className="TchatBox-header">
     		<div className="TchatBox-header-left">
-    			<div><NavLink to="/Discussion"><img src={back} alt="back arrow"/></NavLink></div>
+    			<div><NavLink to="/Home/Discussion"><img src={back} alt="back arrow"/></NavLink></div>
 		       <div style={{display:"flex",flexDirection:"row",marginLeft:10}}>
             	<div className="image-div">
   				 <img src={user} atlt="profil" id="discussion-user-icon"/>
@@ -78,18 +69,16 @@ return(
     		<div className="Message-sent-item"></div>
     		<div className="Message-sent-block">
     			<input type="text" id='input' className="Message-sent-item-input" placeholder='Type your message...' onChange={(e)=>this.setState({message:e.target.value})}/>
-           {
-          	/*dec
-          	<input type="button" value="button"  />
-           */}<div className="Message-sent-button"
-			onClick={()=>{
-				(this.state.message=='')?console.log('empty message'):Mess.push({message:this.state.message,sent:false})
-		        // socket.emit('mopi',{message:this.state.message})
-		       this.setState({Messages:Mess,message:''})
-		       document.getElementById('input').value=''
-			}}>
-            	 	<img src={send} atlt="phone"  style={{width:25,height:25,marginTop:4}}/>
-             	</div>
+          <div className="Message-sent-button"
+        			onClick={()=>
+               { 
+                (this.state.message=='')?console.log('empty message'):Mess.push({message:this.state.message,sent:false})
+        		       this.setState({Messages:Mess,message:''})
+        		       document.getElementById('input').value=''
+                   // socket.emit('welcome',{message:'hello world'})
+        			}}>
+          	 	<img src={send} atlt="phone"  style={{width:25,height:25,marginTop:4}}/>
+         	</div>
      		 </div>
     	</div>	
   </div>

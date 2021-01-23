@@ -1,19 +1,16 @@
 import React from 'react'
 import usersIcon from "./assets/users.svg"
 import newsIcon from "./assets/newspaper.svg"
-import docIcon from "./assets/users.svg"
-import chatIcon from "./assets/users.svg"
-import {NavLink} from 'react-router-dom'
+import docIcon from "./assets/book.svg"
+import chatIcon from "./assets/bubbles.svg"
+import {withRouter} from 'react-router-dom'
 import './BottomNavigation.scss'
 
-const BottomNavigation = () => {
+const BottomNavigation = ({history}) => {
   const switchTab = (target) => {
-    console.log(target)
     let bottomNav = document.querySelector('#bottom-nav')
-    console.log(bottomNav.children)
     Array.from(bottomNav.children).map(item=>{
       if(item.id === target.id){
-        console.log(item.id, target.id)
         item.classList.add('on')
       }
       else item.classList.remove('on')
@@ -22,20 +19,20 @@ const BottomNavigation = () => {
   }
   return (
     <div id="bottom-nav">
-        <div id="item-news" onClick={(e)=>switchTab(e.currentTarget)} className="item-container on">
-          <NavLink to="/Actu"><img src={newsIcon}/></NavLink>
+        <div id="item-news" onClick={(e)=>{switchTab(e.currentTarget);history.push('/Actu')}} className="item-container on">
+          <img src={newsIcon}/>
         </div>
-        <div id="item-user" onClick={(e)=>switchTab(e.currentTarget)} className="item-container">
-          <NavLink to="/MyClass"><img src={usersIcon}/></NavLink>
+        <div id="item-user" onClick={(e)=>{switchTab(e.currentTarget);history.push('/MyClass')}} className="item-container">
+          <img src={usersIcon}/>
         </div>
-        <div id="item-doc" onClick={(e)=>switchTab(e.currentTarget)} className="item-container">
-          <NavLink to="/Documentation"><img src={docIcon}/></NavLink>
+        <div id="item-doc" onClick={(e)=>{switchTab(e.currentTarget);history.push('/Documentation')}} className="item-container">
+          <img src={docIcon}/>
         </div>
-        <div id="item-chat" onClick={(e)=>switchTab(e.currentTarget)} className="item-container">
-          <NavLink to="/Discussion"><img src={chatIcon}/></NavLink>
+        <div id="item-chat" onClick={(e)=>{switchTab(e.currentTarget);history.push('/Discussion')}} className="item-container">
+          <img src={chatIcon}/>
         </div>
     </div>
   )
 }
 
-export default BottomNavigation
+export default withRouter(BottomNavigation)

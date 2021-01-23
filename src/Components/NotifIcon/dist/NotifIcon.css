@@ -1,0 +1,32 @@
+#navbar-notif-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+#navbar-notif-icon {
+  height: 23px;
+  width: 23px;
+  cursor: pointer;
+}
+
+#navbar-notif-count {
+  display: flex;
+  width: 14px;
+  height: 14px;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  font-weight: bolder;
+  position: absolute;
+  bottom: -5px;
+  right: calc(50% - 15px);
+  font-size: 10px;
+}

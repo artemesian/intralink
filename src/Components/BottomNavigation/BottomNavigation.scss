@@ -1,0 +1,36 @@
+#bottom-nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 64px;
+  box-shadow: 0 -2px 30px #64646420;
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+  width: 100%;
+  border-radius: 10px 10px 0 0 ;
+  background-color: #fff;
+  &>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    background: white;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+    &.on{
+      transition: all 0.2s ease-in-out;
+      background: rgb(0, 167, 225);
+      background: linear-gradient(270deg, rgba(0, 167, 225, 1) 0%, rgba(0, 84, 113, 1) 100%);
+      img{
+        filter: invert(1) sepia(0) saturate(0) hue-rotate(360deg);
+      }
+    }
+    img{
+      height: 16px;
+      filter: invert(30) sepia(100) saturate(1000) hue-rotate(180deg);
+    }
+  }
+}

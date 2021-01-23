@@ -1,0 +1,217 @@
+#navbar-wrapper{
+	width: 100%;
+	height: 100%;
+	height: 64px;
+	box-shadow: 0px 1px 10px 1px rgba(0,0,0,0.05);
+	background-color: #fff;
+	position: sticky;
+	position: -webkit-sticky;
+	top:0px;
+	z-index:10;
+	border-bottom: 1px solid #E5E5E5;
+	padding: 0 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#navbar-container{
+	border:none;
+	display: flex;
+	background-color: #fff;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: 1300px;
+	margin:auto;
+	height: 100%;
+}
+#navbar-logo-wrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 5px;
+}
+.navbar-title{
+	display: flex;
+	font-weight: bold;
+	font-size: 17px;
+	align-self: flex-end;
+	margin-bottom: 5px;
+}
+#navbar-logo{
+	cursor: pointer;
+	width: 36px;
+	height: 36px;
+	margin-right: 10px;
+}
+#navbar-right-container{
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: auto 30px 35px;
+	column-gap: 12px;
+	grid-template-rows: 100%;
+	align-items: center;
+}
+#navbar-search-container{
+	width: 100%;
+}
+#navbar-profile-wrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#navbar-profile-container{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 50%;
+	height: 35px;
+	width: 35px; 
+	background-color: #011627;
+	align-self: center;
+	cursor: pointer;
+}
+#navbar-search-container{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+#navbar-search-icon{
+	height: 23px;
+	width: 23px;
+	margin:0 0 0 auto;
+	cursor: pointer;
+}
+#navbar-search-input{
+	height: 34px;
+	width: 100%;
+	border-radius: 20px;
+	padding-left: 20px;
+	border:1px solid rgba(0,0,0,0.15);
+	animation: increaseWidth 0.45s ease;
+}
+@keyframes increaseWidth {
+	from{
+		width: 35%;
+	}
+	to{
+		width: 100%;
+	}
+}
+.navbar-slider{
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: white;
+	min-width: 320px;
+	width: 30vw;
+	max-width: 400px;
+	height: 100vh;
+	box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.2);
+	background-color: #fff;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 64px 25% auto 64px auto;
+	grid-row-gap: 10px;
+	transition: all 0.4s ease-out;
+	z-index: 10;
+}
+#navbar-back-container{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+#navbar-modify-profile-container{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+#navbar-modify-profile-wrapper{
+	width: 100%;
+	height: 100%;
+	background-color: #01162705;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#navbar-modify-profile{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 50%;
+	height: 130px;
+	width: 130px; 
+	background-color: #011627;
+	cursor: pointer;
+	display:flex;
+	justify-content:center;
+	align-items: flex-end;  
+}
+#navbar-modify-profile-pencil-container{
+	background-color: #ffffff33;
+	width: 100%;
+	height: 40%;
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	transition: all 0.25s ease-in-out;
+}
+#navbar-modify-profile-pencil-container:hover{
+	height: 100%;
+}
+#user-name{
+	margin-top: 5px;
+	box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.3);
+	font-weight: 450;
+}
+.navbar-list-wrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 0px;
+}
+.navbar-list-item{
+	list-style: none;
+	margin:10px;
+}
+.navbar-link-item{
+	border:none;
+	background-color: transparent;
+	color:#011627cc;
+	font-weight: 600;
+	font-size: 14px;
+	cursor: pointer;
+	transition: all 0.15s ease;
+}
+.navbar-link-item:hover{
+	color:#0076F2;
+	font-size: 16px;
+}
+.navbar-link-item:focus{
+	outline: none;
+	border:none;
+}
+#navbar-social-container{
+	display: flex;
+	justify-content: space-around;
+	padding: 0 40px;
+	align-items: center;
+}
+.social{
+	width: 32px;
+	height: 32px;
+}
+#navbar-version{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #01162799;
+}
+.navbar-sliding{
+	margin-left: -500px;
+}

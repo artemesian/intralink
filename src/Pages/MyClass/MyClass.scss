@@ -1,0 +1,146 @@
+#Classroom-wrapper{
+	width: 100%;
+	#Classroom-header{
+		display: flex;
+		justify-content: space-between;
+		padding: 20px 30px;
+		box-shadow: 0px 2px 10px 1px #eeeeeebb;
+		#Classroom-header-box{
+
+			h2{
+				font-size: 1.4em;
+				padding-bottom: 10px;
+			}
+			div{
+              font-size: 14px;
+              color: gray;  
+			}
+		}
+		#Classroom-header-image-box{
+			border-radius: 20px;
+			border:1px solid black;
+			width:45px;
+			height: 45px;
+			padding:3px;
+			#Classroom-header-image{
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+	#Classroom-infos{
+		font-size: 16px;
+		font-weight: bolder;
+		margin-bottom: 15px;
+		width: 100%;
+	}
+	.Classroom-container{
+		display: flex;
+		color: black;
+		text-decoration:none;
+		width: 87.5%;
+		margin:auto;
+		padding: 30px 0;
+		flex-wrap: wrap;
+		text-align: left;
+		justify-content: flex-start;
+		.Classroom-container-wrapper{
+			color: black;
+			text-decoration:none;
+			border:1px solid #eeeeeebb;
+			border-radius: 12px;
+			box-shadow: 2px 4px 7.5px 2px #eeeeeebb;
+			height: auto;
+			max-height: 250px;
+			margin: 7.5px 0;
+			width: 100%;
+			max-width: 350px;
+			display: flex;
+			.Classroom-container-box{
+				width: 65%;
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				align-items: center;
+				align-content: center;
+				height: 100%;
+				padding: 12px 5px 6px 15px ;
+				.Classroom-container-box-name{
+					font-size:16px;
+					padding-bottom: 7px;
+				}
+				.Classroom-container-box-time{
+					width:100%;
+					display: flex;
+					padding: 2.5px 0;
+					font-size: 14px;
+					justify-content: flex-start;
+				    .Classroom-container-box-time-image{
+				    	width:14px;
+							height: 14px;
+							margin-right: 4px;
+				    	.Classroom-header-image{
+					    	width:100%;
+					    	height: 100%;
+				    	}
+				    }
+			    	.Classroom-container-box-time-item{
+			    		display:flex;
+				    	width:100%;
+				    	height: 100%;
+				    	align-items:center;
+			    	}
+				}
+				.Classroom-container-box-filiere{
+					display:flex;
+					justify-content: flex-start;
+					padding: 2.5px 0;
+					font-size: 14px;
+					width: 100%;
+					.Classroom-container-box-filiere-image{
+						width: 14px;
+						height: 14px;
+						margin-right: 4px;
+					}
+				}
+				.Classroom-container-box-picture{
+					width: 100%;
+					display: flex;
+					position: relative;
+					height: 40px;
+					align-items: center;
+					justify-content: flex-start;
+					.Classroom-container-box-picture-image{
+						height: 50px;
+					}
+				}
+			}
+		}
+		.Classroom-container-color{
+        	width: 35%;
+        	border:1px solid #eeeeeebb;
+        	border-radius: 0px 12px 12px 0px;
+					background: linear-gradient(#567AEC, #6955AC);
+		}
+	}
+	.Classroom-container-plus{
+		background: linear-gradient(#567AEC, #6955AC);
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		position: fixed;
+		bottom: 80px;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		right: 20px;
+		box-shadow: 0px 2px 10px 2px #567AEC88;
+		transition: all 0.1s ease-out;
+		.Classroom-container-plus-image{
+			width: 60%;
+		}
+		&:hover{
+			box-shadow: 0px 2px 10px 2px #567AECdd;
+		}
+	}
+}

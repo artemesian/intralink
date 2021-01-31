@@ -6,8 +6,10 @@ import Homework from '../../Components/Homework/Homework';
 import MyCourse from '../../Components/MyCourse/MyCourse';
 import NotifIcon from '../../Components/NotifIcon/NotifIcon';
 import { changeBottomnav } from '../../Redux/bottomnav/bottomnav-actions'
-
+import axios from 'axios'
 import './Classroom.scss'
+import { getStore } from '../../Redux/class/class-selectors';
+
 class Classroom extends React.Component {
 
 	constructor(props) {
@@ -37,7 +39,7 @@ class Classroom extends React.Component {
 					<div id="header">
 						<div>
 							<BackIcon/>
-							<p>Management of Information Systems</p>
+							<p>{this.props.store.Classe.Name}</p>
 						</div>
 						<NotifIcon/>
 					</div>
@@ -53,9 +55,9 @@ class Classroom extends React.Component {
 					<Chat/>
 				:
 					this.state.route==="homework"?
-						<Homework/>
+						<Homework Classe={this.props.store.Classe}/>
 					:
-						<MyCourse/>
+						<MyCourse Classe={this.props.store.Classe}/>
 				}
 			</div>
 		)
@@ -64,4 +66,5 @@ class Classroom extends React.Component {
 const mapDispatchToProps = dispatch => ({
 	changeBottomnav: (data) => dispatch(changeBottomnav(data)),
 })
-export default connect(null, mapDispatchToProps)(Classroom);
+
+export default connect(state => ({ store: getStore(state) }), mapDispatchToProps)(Classroom);

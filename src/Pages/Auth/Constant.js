@@ -1,7 +1,7 @@
 export const Plateform=[
 	{value:"PFTIN",label:"PFTIN"},
-	{value:"PFTT",label:"PFTT"},
-	{value:"PFTI",label:"PFTI"}
+	// {value:"PFTT",label:"PFTT"},
+	// {value:"PFTI",label:"PFTI"}
 ];
 
 export const Filieres={
@@ -30,11 +30,14 @@ export const Formation=[
 {value:"FI2",label:"FI2"},
 ];
 export const Niveau=[
-{value:"Niveau 1",label:"Niveau 1"},
-{value:"Niveau 2",label:"Niveau 2"},
-{value:"Niveau 3",label:"Niveau 3"},
+{value:"1",label:"Niveau 1"},
+{value:"2",label:"Niveau 2"},
+{value:"3",label:"Niveau 3"},
 ];
 
-
+export const Gender=[
+{value:"Mâle",label:"Mâle"},
+{value:"Female",label:"Female"},
+]
 
 

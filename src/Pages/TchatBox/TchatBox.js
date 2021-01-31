@@ -14,7 +14,7 @@ import {connect} from 'react-redux'
 import BackNavbar from '../../Components/BackNavbar/BackNavbar'
 import io from 'socket.io-client'
 import {local_url} from '../../url_config.js'
-import { loadMessages } from '../../Redux/chat/chat-action'
+import { loadMessages,lastMessage} from '../../Redux/chat/chat-action'
 import ChatMessage from '../../Components/ChatMessage/ChatMessage';
 let flex='';
 let username='Mopi';
@@ -51,7 +51,6 @@ class TchatBox extends React.Component{
 componentDidMount(){
   //check the role of User
   (this.props.store.User.User.Role==="etudiant")?this.setState({Is_teacher:false}):this.setState({Is_teacher:true})
-
 //connect the socket
  this.socket = io.connect(`${local_url}`,{transporters:['websocket']});
 //load last messages

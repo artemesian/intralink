@@ -52,7 +52,7 @@ class Discus extends React.Component{
 					</div>
 					<NavLink id="discussion-wrapper-contain" to="/Home/tchatbox">
 						<div id="discussion-wrapper-contain-title">{this.state.Group_name}</div>
-						<div>{`le louche : ${this.checkMessage('salut les gars')}`}</div>
+						<div>{`${this.props.store.User.User.Name} ${this.checkMessage('............................................................')}`}</div>
 					</NavLink>
 				</div>
 			</div>

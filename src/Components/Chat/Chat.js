@@ -41,6 +41,7 @@ class Chat extends Component {
   }
 
 componentDidMount(){
+  // this.setState({Messages:this.props.store.Classe.Chat})
   //check the role of User
   (this.props.store.User.User.Role==="etudiant")?this.setState({Is_teacher:false}):this.setState({Is_teacher:true})
 
@@ -48,8 +49,9 @@ componentDidMount(){
  this.socket = io.connect(`${local_url}`,{transporters:['websocket']});
 //load last messages
 this.socket.on('init',(messages)=>{
+  console.log(this.props.store.Classe.Chat)
   this.setState((state)=>({
-    Messages:[...state.Messages,...messages]
+    Messages:[...state.Messages,...this.props.store.Classe.Chat]
   }))
   console.log('init',messages)
   this.scrollToBottom()
@@ -74,7 +76,8 @@ async submitMessage(event){
       User_id:this.props.store.User.User._id,
       Username:this.props.store.User.User.Name,   
       Message:this.state.Message,
-      Is_teacher:this.state.Is_teacher
+      Is_teacher:this.state.Is_teacher,
+      Class:this.props.store.Classe.Name
   }]
   }),this.scrollToBottom)
 
@@ -82,7 +85,8 @@ async submitMessage(event){
       User_id:this.props.store.User.User._id,
       Username:this.props.store.User.User.Name,   
       Message:this.state.Message,
-      Is_teacher:this.state.Is_teacher
+      Is_teacher:this.state.Is_teacher,
+      Class:this.props.store.Classe.Name
   })
     document.getElementById('Message').value=''
   }

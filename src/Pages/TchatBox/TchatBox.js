@@ -61,16 +61,18 @@ this.socket.on('init-group',(messages)=>{
     Messages:[...state.Messages,...messages]
   }))
   console.log('init-group',messages)
-  // this.scrollToBottom()
+  this.scrollToBottom()
 })
  // this.props.loadMessages({Messages:this.state.Messages})
 //update the chat if new message is broadcasted
 this.socket.on('push-group',(message)=>{
-  this.setState(state=>({
+  if (message.Group.Name===this.props.store.User.User.Group[0].Name) {
+     this.setState(state=>({
     Messages:[...state.Messages,message]
   })
-  // ,this.scrollToBottom
-  )
+     ,this.scrollToBottom
+)
+}
 })
 }
 
@@ -104,10 +106,10 @@ async submitMessage(event){
   handleInput = target => {
     this.setState({[target.id]: target.value})
   }
-  // scrollToBottom(){
-  //   const chat=document.getElementById('TchatBox-wrapper');
-  //   chat.scrollTop=chat.scrollHeight;
-  // }
+  scrollToBottom(){
+    const chat=document.getElementById('TchatBox-wrapper');
+    chat.scrollTop=chat.scrollHeight;
+  }
 
   //send file function
   sendFile(){
@@ -135,6 +137,7 @@ return(
         <ChatMessage
           key={chat.id}
           {...chat}
+          class={true}
          identity={chat.Is_teacher?"teacher":chat.User_id===this.state.myID?"me":"others"} 
          />)
       // <div className="TchatBox-header">

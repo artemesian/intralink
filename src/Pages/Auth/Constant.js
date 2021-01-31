@@ -9,8 +9,8 @@ export const Filieres={
 	[
 	{value:"GRT",label:"GRT"},
 	{value:"GI",label:"GI"},
-	{value:"GBM",label:"GBM"},
-	{value:"GEII",label:"GEII"}
+	// {value:"GBM",label:"GBM"},
+	// {value:"GEII",label:"GEII"}
 	],
 	PFTI:[
 	{value:"GIM",label:"GIM"},

@@ -14,7 +14,7 @@ import {connect} from 'react-redux'
 import BackNavbar from '../../Components/BackNavbar/BackNavbar'
 import io from 'socket.io-client'
 import {local_url} from '../../url_config.js'
-import { loadMessages } from '../../Redux/chat/chat-action'
+import { loadMessages,lastMessage} from '../../Redux/chat/chat-action'
 import ChatMessage from '../../Components/ChatMessage/ChatMessage';
 let flex='';
 let username='Mopi';
@@ -51,7 +51,6 @@ class TchatBox extends React.Component{
 componentDidMount(){
   //check the role of User
   (this.props.store.User.User.Role==="etudiant")?this.setState({Is_teacher:false}):this.setState({Is_teacher:true})
-
 //connect the socket
  this.socket = io.connect(`${local_url}`,{transporters:['websocket']});
 //load last messages
@@ -61,16 +60,18 @@ this.socket.on('init-group',(messages)=>{
     Messages:[...state.Messages,...messages]
   }))
   console.log('init-group',messages)
-  // this.scrollToBottom()
+  this.scrollToBottom()
 })
  // this.props.loadMessages({Messages:this.state.Messages})
 //update the chat if new message is broadcasted
 this.socket.on('push-group',(message)=>{
-  this.setState(state=>({
+  if (message.Group.Name===this.props.store.User.User.Group[0].Name) {
+     this.setState(state=>({
     Messages:[...state.Messages,message]
   })
-  // ,this.scrollToBottom
-  )
+     ,this.scrollToBottom
+)
+}
 })
 }
 
@@ -104,10 +105,10 @@ async submitMessage(event){
   handleInput = target => {
     this.setState({[target.id]: target.value})
   }
-  // scrollToBottom(){
-  //   const chat=document.getElementById('TchatBox-wrapper');
-  //   chat.scrollTop=chat.scrollHeight;
-  // }
+  scrollToBottom(){
+    const chat=document.getElementById('TchatBox-wrapper');
+    chat.scrollTop=chat.scrollHeight;
+  }
 
   //send file function
   sendFile(){
@@ -135,6 +136,7 @@ return(
         <ChatMessage
           key={chat.id}
           {...chat}
+          class={true}
          identity={chat.Is_teacher?"teacher":chat.User_id===this.state.myID?"me":"others"} 
          />)
       // <div className="TchatBox-header">

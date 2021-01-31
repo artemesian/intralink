@@ -52,7 +52,7 @@ class Classroom extends React.Component {
 						</div>
 					</div>
 				{this.state.route==="chats"?
-					<Chat/>
+					<Chat Classe={this.props.store.Classe}/>
 				:
 					this.state.route==="homework"?
 						<Homework Classe={this.props.store.Classe}/>

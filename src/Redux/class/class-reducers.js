@@ -6,6 +6,9 @@ const INITIAL_STATE = {
 const INITIAL_STATE_1 = {
 	Classe:{}
 }
+const INITIAL_STATE_2 = {
+	last:{}
+}
 export const loadClassReducer = (currentState = INITIAL_STATE_1, action = {}) => {
 
 	switch (action.type) {
@@ -21,6 +24,17 @@ export const listclassReducer = (currentState = INITIAL_STATE, action = {}) => {
 
 	switch (action.type) {
 		case joinClassActionTypes.LIST_CLASS:
+			return ({
+				...action.payload
+			})
+		default:
+			return currentState;
+	}
+}
+export const lastMessage = (currentState = INITIAL_STATE, action = {}) => {
+
+	switch (action.type) {
+		case joinClassActionTypes.LAST_MESSAGE:
 			return ({
 				...action.payload
 			})

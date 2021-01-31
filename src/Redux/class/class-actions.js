@@ -8,3 +8,7 @@ export const listClass = (change) => ({
 	type: joinClassActionTypes.LIST_CLASS,
 	payload: change
 })
+export const lastMessage = (change) => ({
+	type: joinClassActionTypes.LIST_CLASS,
+	payload: change
+})

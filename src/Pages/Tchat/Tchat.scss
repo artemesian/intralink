@@ -1,4 +1,11 @@
-#chatinput-wrapper {
+#chat-container {
+  width:100%;
+  height: 100%;
+  border:1px solid black;
+ padding: 20px; 
+ overflow: scroll;
+ max-height: 70vh;
+ #chatinput-wrapper {
   background-color: #FBFBFB;
   display: flex;
   width: 100%;
@@ -33,8 +40,13 @@
       margin: auto;
       filter: invert(62%) sepia(0) saturate(110.8) brightness(1);
     }
+    #attach{
+      width: 22px;
+      background-repeat:no-repeat;
+    }
     #send{
       filter: invert(60%) sepia(1) saturate(11.8) hue-rotate(162deg) brightness(0.8);
     }
   }
+}
 }

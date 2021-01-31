@@ -3,6 +3,7 @@ import { bottomnavReducer } from './bottomnav/bottomnav-reducer';
 import { loadClassReducer,listclassReducer } from './class/class-reducers';
 import { loadUser} from './auth/auth-reducer';
 import { loadArticles} from './articles/article-reducers';
+import { sendMessageReducer} from './chat/chat-reducer';
 //For Enabling Caching using Redux-Persist
 
 // import { persistReducer } from 'redux-persist';
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
 	Classe:loadClassReducer,
 	Classes:listclassReducer,
 	User:loadUser,
-	Articles:loadArticles
+	Articles:loadArticles,
+	Message:sendMessageReducer
 })
 
 export default rootReducer

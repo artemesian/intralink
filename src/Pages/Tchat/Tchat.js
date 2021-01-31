@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import ChatInput from '../ChatInput/ChatInput';
-import ChatMessage from '../ChatMessage/ChatMessage';
-import './Chat.scss';
+import ChatMessage from '../../Components/ChatMessage/ChatMessage';
+import ChatInput from '../../Components/ChatInput/ChatInput';
+import './Tchat.scss';
 import {local_url} from '../../url_config.js'
 import io from 'socket.io-client'
 import { getStore } from '../../Redux/class/class-selectors';
@@ -10,6 +10,7 @@ import attach from '../../Assets/attach.svg'
 import mic from '../../Assets/mic.svg'
 import send from '../../Assets/send.svg'
 import { loadMessages } from '../../Redux/chat/chat-action'
+import BackNavbar from '../../Components/BackNavbar/BackNavbar'
 class Chat extends Component {
   constructor(props){
     super(props);
@@ -114,22 +115,15 @@ async submitMessage(event){
     console.log(this.props.store)
     return (
       <div id="chat-container">
+      <ChatInput User={this.props.store.User.User}/>
+      <BackNavbar text="Chat"/>
         {this.state.Messages.map(chat=>
         <ChatMessage
           key={chat.id}
           {...chat}
          identity={chat.Is_teacher?"teacher":chat.User_id===this.state.myID?"me":"others"} 
          />)}
-        <div id="chatinput-wrapper">
-        <div id="chatinput-container">
-          <div id="attach" style={{backgroundImage:`url(${attach})`}} onClick={()=>this.sendFile()}>
-            <input type="file" style={{display:'none'}} id="file" onChange={this.onChangeFile}/>
-          </div>
-          <textarea onChange={(e)=>this.handleInput(e.target)} name="message" id="Message" placeholder="Type a Message"></textarea>
-          <img id="mic" src={mic} alt="microphone icon"/>
-          <img onClick={(event)=>this.submitMessage(event)} id="send" src={send} alt="send icon"/>
-        </div>
-      </div>
+
       </div>
     )
   }

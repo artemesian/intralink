@@ -30,7 +30,7 @@ export const Navbar = (props) => {
 			<div id="navbar-container">
 				<div id="navbar-logo-wrapper">
 					<img src={menu} alt="logo" id="navbar-logo"onClick={()=>showNav()}/>
-					<span className="navbar-title">Actualité</span>
+					<span className="navbar-title">{props.title}</span>
 				</div>
 				<div className="navbar-slider navbar-sliding">
 					<div id="navbar-back-container">
@@ -54,7 +54,7 @@ export const Navbar = (props) => {
 						<li className="navbar-list-item"><NavLink to="/Home/SETTING"><button className="navbar-link-item" >SETTING</button></NavLink></li>
 						<li className="navbar-list-item"><NavLink to="/Home/HELP"><button className="navbar-link-item" >HELP</button></NavLink></li>
 						<li className="navbar-list-item"><NavLink to="/Home/ABOUT"><button className="navbar-link-item" >ABOUT</button></NavLink></li>
-						<li className="navbar-list-item"><NavLink to="/Home/LOGOUT"><button className="navbar-link-item" >LOGOUT</button></NavLink></li>
+						<li className="navbar-list-item"><NavLink to="/"><button className="navbar-link-item" >LOGOUT</button></NavLink></li>
 					</ul>
 					<div id="navbar-social-container">
 						<img src={twitter} alt="social-twitter" className="social"/>

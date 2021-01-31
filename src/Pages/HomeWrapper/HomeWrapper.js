@@ -8,7 +8,7 @@ import JoinClass from '../JoinClass/JoinClass.js';
 import MyClass from '../MyClass/MyClass.js';
 import Classroom from '../Classroom/Classroom.js';
 import Home from '../Home/Home.js';
-import Discussion from '../Discussion/Discussion.js';
+import Discus from '../Discus/Discus.js';
 import Documentation from '../Documentation/Documentation.js';
 import TchatBox from '../TchatBox/TchatBox.js';
 import Article from '../Article/Article.js';
@@ -26,7 +26,7 @@ class HomeWrapper extends Component {
 				    <Route path="/Actu" component={Home}/>
 				    <Route path="/Home/Article/:articleID" component={Article}/>
 				    <Route exact path="/Home/MyClass" component={MyClass}/>
-			        <Route exact path="/Home/Discussion" component={Discussion}/>
+			        <Route exact path="/Home/Discussion" component={Discus}/>
 			        <Route exact path="/Home/Classroom/:classID" component={Classroom}/>
 			        <Route exact path="/Home/Documentation" component={Documentation}/>
 			        <Route exact path="/Home/TchatBox" component={TchatBox}/>

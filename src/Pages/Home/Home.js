@@ -8,7 +8,6 @@ import {loadArticles} from '../../Redux/articles/article-actions'
 import { getStore } from '../../Redux/class/class-selectors';
 import {local_url} from '../../url_config.js'
 import './Home.scss'
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +28,7 @@ class Home extends Component {
 
     return (
       <div id="home-container">
-        <Navbar User={this.props.store.User.User}/>
+        <Navbar User={this.props.store.User.User} title="Actualité"/>
         <HeaderSlider Articles={this.props.store.Articles.ARTICLE}/>
         <div id="article-item-container">
           {this.props.store.Articles.ARTICLE.map((item, index) =>{console.log('item',item)
